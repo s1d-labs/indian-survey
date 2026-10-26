@@ -1,0 +1,24 @@
+name: setup
+
+# Puts this family's projects in the pool and registers its health checks (setup_family.py). Run it by hand after changing
+# family.py. The hub trusts this repo (s1d-labs/<family>) through the GitHub OIDC token; no secrets are needed.
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt "scrape-hub-client @ git+https://github.com/s1d-labs/runner@main#subdirectory=sdk"
+      - run: python setup_family.py
+        env:
+          SCRAPE_HUB_URL: https://scrape.s1d.me

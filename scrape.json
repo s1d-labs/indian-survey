@@ -1,0 +1,8 @@
+{
+  "family": "example",
+  "about": "Example family: books.toscrape.com (a public site made for scraping practice). Copy this repo and change it.",
+  "setup": ["pip install -r requirements.txt"],
+  "tasks": {
+    "crawl": ["python", "crawl.py"]
+  }
+}

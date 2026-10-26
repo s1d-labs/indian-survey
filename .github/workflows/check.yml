@@ -1,0 +1,35 @@
+name: check
+
+# Verifies this family on every push: parsing tests on saved pages (pytest), then scrape-check, which runs setup_family.py and the
+# crawl task against a local stand-in for scrape-hub, the same way the pool runner does, on 2 real queue items (and a rerun).
+# Nothing reaches the real hub. Run it by hand too: Actions -> check -> Run workflow.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install -q -r requirements.txt pytest "scrape-hub-client @ git+https://github.com/s1d-labs/runner@main#subdirectory=sdk"
+          python3 -c "import json; [print(c) for c in json.load(open('scrape.json')).get('setup', [])]" | grep -v "requirements.txt" | while IFS= read -r cmd; do bash -c "$cmd"; done
+      - name: Parsing tests
+        run: python -m pytest tests -q
+      - name: scrape-check (local stand-in hub, 2 real items)
+        run: scrape-check --items 2
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: scrape-check
+          path: .scrape-check/
+          if-no-files-found: ignore
