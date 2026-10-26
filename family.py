@@ -1,27 +1,28 @@
-"""What this family scrapes. Change this file first.
+"""What this family does: one pass over every host listed on igod.gov.in (hosts.json, made by indian-status on the hub
+owner's box: domain, start URL, resolved IP). Two projects, one queue item per host each:
 
-FAMILY must equal the repo name (s1d-labs/<FAMILY>) and the family the hub owner added on scrape.s1d.me/runners.
-Each project is one queue of work on one site; `target` is the host it hits (the hub caps workers per target).
+  indian-survey-fetch   what the host serves (core_fetch.py)
+  indian-survey-render  how its home page renders in Chromium (core_render.py)
+
+Every item is a different host, so the per-target worker cap does not apply in the usual sense: `target` is a label and
+politeness is per server IP inside the task (see survey_task.py). The queue order interleaves hosts that share an IP.
 """
 import json
 from pathlib import Path
 
 FAMILY = json.loads((Path(__file__).parent / "scrape.json").read_text())["family"]
+HOSTS = json.loads((Path(__file__).parent / "hosts.json").read_text())
+
+
+def items():
+    return [{"key": f"{i:05d}-{h['domain']}", "payload": {**h, "expected": 1}} for i, h in enumerate(HOSTS)]
+
 
 PROJECTS = [
-    {
-        "name": f"{FAMILY}-books",              # project names: 2-64 chars of a-z 0-9 - _, start them with the family name
-        "title": "Books to Scrape catalogue",
-        "task": "crawl",                         # a task from scrape.json
-        "target": "books.toscrape.com",
-        "env": {"SITE": "https://books.toscrape.com"},
-        "probe": f"{FAMILY}:books.toscrape.com",
-        "unit_label": "page", "record_label": "book",
-        # the queue: one item per catalogue page; `expected` (records per item) gives progress and ETAs on the dashboard
-        "items": [{"key": f"page-{n}", "payload": {"url": f"https://books.toscrape.com/catalogue/page-{n}.html", "expected": 20}}
-                  for n in range(1, 51)],
-    },
+    {"name": f"{FAMILY}-fetch", "title": "igod hosts: home page, robots, favicon, sitemap, 404", "task": "fetch",
+     "target": "igod-hosts", "env": {}, "probe": None, "unit_label": "host", "record_label": "host", "max_workers": 40},
+    {"name": f"{FAMILY}-render", "title": "igod hosts: home page rendered in Chromium", "task": "render",
+     "target": "igod-hosts-render", "env": {}, "probe": None, "unit_label": "host", "record_label": "host", "max_workers": 60},
 ]
 
-# health checks the hub runs every minute; work for a project holds while its probe fails
-PROBES = [{"name": f"{FAMILY}:books.toscrape.com", "url": "https://books.toscrape.com/", "expect": "All products"}]
+PROBES = []   # thousands of different hosts: no single health check means anything

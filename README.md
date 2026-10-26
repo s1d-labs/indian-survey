@@ -1,47 +1,18 @@
-# family-template
+# indian-survey
 
-Start a new scraping family for the s1d-labs pool. A family is one kind of site (or one platform many sites share); the pool runs
-its code on members' GitHub Actions minutes. This template is a complete, working family for
-[books.toscrape.com](https://books.toscrape.com) (a public site made for scraping practice): copy it, then change it.
+A one-off architecture survey of Indian government websites, run on the s1d-labs scrape pool. The host list is every site
+on [igod.gov.in](https://igod.gov.in) (~10.5K that resolve), made by `indian-status` on the hub owner's box (`hosts.json`).
 
-## Make your family
+| Project | Task | Per host |
+|---|---|---|
+| `indian-survey-fetch` | `python survey_task.py fetch` | robots.txt, home page with its redirect chain, plain http on port 80, favicon, sitemap.xml, `/wp-json/`, one made-up path (the 404 page) |
+| `indian-survey-render` | `python survey_task.py render` | the home page in headless Chromium: screenshot, rendered HTML, every request, runtime libraries (webappanalyzer `js` globals) |
 
-1. Ask the hub owner to **add the family** on [scrape.s1d.me/runners](https://scrape.s1d.me/runners) (name, what it scrapes, owner).
-   The hub creates `s1d-labs/<family>` from this template, names the family in `scrape.json`, and makes the owner admin
-   (with the GitHub account they added on home.s1d.me).
-2. Clone it: `gh repo clone s1d-labs/<family>`.
-3. In your repo:
-   - `scrape.json`: set `"family"` to the family name; list your tasks (one command each) and setup steps.
-   - `family.py`: your projects (one queue of work per site), their target hosts, the env your command needs, the queue items,
-     and the health checks.
-   - `crawl.py` (or whatever your tasks run): the scraper.
-4. **Check it**: `scrape-check` in the repo (needs `pip install "scrape-hub-client @ git+https://github.com/s1d-labs/runner@main#subdirectory=sdk"`).
-   It runs your setup and task against a local stand-in hub on 3 real items and says what works. The **check** workflow runs it
-   (and `tests/`) on every push.
-5. Run the **setup** workflow (Actions → setup → Run workflow). It registers the projects, puts them in the pool and registers
-   the health checks.
-6. The hub starts runs in members' accounts when the pool is on and there is work. Watch it on scrape.s1d.me.
+Each host becomes one `<domain>.tgz` in the family bucket plus a small record. The analysis (platform families such as S3WaaS,
+NIC's Drupal CMF, GePNIC; how sites in a family differ; shared hosting) happens in `indian-status` (`python -m indianstatus survey ...`).
 
-## What your code gets
-
-The pool worker ([s1d-labs/runner](https://github.com/s1d-labs/runner)) checks out this repo at `main`, runs the `setup` steps from
-`scrape.json`, and for each assignment runs the task's command here with:
-
-| Variable | What |
-|---|---|
-| `SCRAPE_POOL_PROJECT` | the project to work on |
-| `SCRAPE_JOB_INDEX`, `SCRAPE_TOTAL_JOBS` | this worker's slice |
-| `SCRAPE_MAX_HOURS` | how long the command may run |
-| `SCRAPE_HUB_URL` | the hub |
-| your project's `env` | e.g. `SITE` |
-
-Use `scrape_hub_client` (`HubClient`) to claim queue items, store records, upload files and report counters. Exit when there is
-nothing left; the worker then asks the hub for the next assignment.
-
-## Rules (the full contract is in CLAUDE.md, written for people and for Claude Code)
-
-- **Be polite.** Use `hub.settings["threads"]` and `delay_ms`, idle while `hub.settings["paused"]`, and report `n_http` and
-  `t_http_s` for every request and `http_<code>` / `http_error` for failures: the hub throttles you from these.
-- **Files go through the hub** (`hub.upload_many`): it signs each upload into the family's bucket (500 GB per member) and stops at
-  the cap. Never put storage keys in this repo.
-- **Public data only**; read the site's terms first. See the team docs on home.s1d.me (Scraping rules).
+- `core_fetch.py` and `core_render.py` are copied from `indian-status/indianstatus/survey/` by its `scripts/sync_family.sh`:
+  change them there.
+- Politeness: one request at a time per host and per server IP within a process, a 60 s pause for an IP that answers 429/503,
+  extra paths skipped when robots.txt disallows them, an honest User-Agent naming the survey and https://india.s1d.me.
+- Try one host without the hub: `python survey_task.py fetch --local https://agra.nic.in` (output in `.scrape-check/`).
