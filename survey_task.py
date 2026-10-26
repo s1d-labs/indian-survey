@@ -105,8 +105,6 @@ class Worker:
                 summary, files = await asyncio.wait_for(core_fetch.fetch_host(self.session, p["url"]), 300)
                 n_req = len(summary.get("reqs") or {}) or 1
             else:
-                if self.pages >= 150:
-                    await self.new_browser()
                 self.pages += 1
                 try:
                     summary, files = await asyncio.wait_for(
@@ -137,6 +135,8 @@ class Worker:
                 if not items:
                     break
                 res = await asyncio.gather(*(self.one(i) for i in items), return_exceptions=True)
+                if self.task == "render" and (self.pages >= 150 or any(isinstance(r, BaseException) for r in res)):
+                    await self.new_browser()   # between batches only: no page of this process is open now
                 for item, r in zip(items, res):
                     if isinstance(r, BaseException):
                         self.hub.error()
