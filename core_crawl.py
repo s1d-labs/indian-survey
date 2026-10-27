@@ -73,8 +73,12 @@ def normalise(base, href):
     href = href.strip()
     if not href or href.startswith(("#", "javascript:", "mailto:", "tel:", "data:")):
         return None
-    u, _ = urldefrag(urljoin(base, href))
-    p = urlsplit(u)
+    try:   # malformed hrefs ("http://[x", "//elementor-template id=1") are skipped, never fatal
+        u, _ = urldefrag(urljoin(base, href))
+        p = urlsplit(u)
+        p.hostname
+    except ValueError:
+        return None
     if p.scheme not in ("http", "https"):
         return None
     q = "&".join(f"{k}={v}" for k, v in sorted(parse_qsl(p.query, keep_blank_values=True))
@@ -242,17 +246,21 @@ def listing_stats(url, html, host):
     last = 1
     own = re.sub(r"/page/\d+$", "", base_path)
     for m in PAGER.finditer(html[:3_000_000]):
-        h = urljoin(url, m.group(1).replace("&amp;", "&"))
+        h = normalise(url, m.group(1).replace("&amp;", "&"))
+        if not h:
+            continue
         hp = re.sub(r"/page/\d+/?$", "", urlsplit(h).path.rstrip("/"))
         if hp == own and same_site(host, urlsplit(h).hostname):   # pagination of this very listing, nothing else
             last = max(last, int(m.group(2) or m.group(3)))
     detail = 0
     for a in main.css("tr a[href], li a[href], article a[href], .views-row a[href]"):
-        h = urljoin(url, a.attributes.get("href") or "")
+        h = normalise(url, a.attributes.get("href") or "")
+        if not h:
+            continue
         p = urlsplit(h)
         if same_site(host, p.hostname) and not DOC_EXT.search(p.path) and not PAGER.search(f'href="{h}"') and p.path.rstrip("/") != base_path:
             detail += 1
-    docs = sum(1 for a in main.css("a[href]") if DOC_EXT.search(urlsplit(a.attributes.get("href") or "").path))
+    docs = sum(1 for a in main.css("a[href]") if (h := normalise(url, a.attributes.get("href") or "")) and DOC_EXT.search(urlsplit(h).path))
     return {"rows": items, "last_page": min(last, 20000), "detail_links": detail, "docs": docs}
 
 
