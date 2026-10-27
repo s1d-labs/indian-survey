@@ -23,7 +23,7 @@ UA = ("Mozilla/5.0 (compatible; indian-status/1.0; public availability monitor o
       "one-time architecture survey; https://india.s1d.me)")
 UA_TOKEN = "indian-status"
 CAPS = {"robots": 262144, "home": 2 * 1048576, "port80": 32768, "favicon": 262144, "sitemap": 262144,
-        "wpjson": 65536, "notfound": 65536, "home_http": 2 * 1048576}
+        "wpjson": 393216, "notfound": 65536, "home_http": 2 * 1048576}
 GAP_S = 0.3   # pause between two requests to the same host
 ICON = re.compile(rb"<link\b[^>]*\brel=[\"']?[^\"'>]*\bicon\b[^>]*>", re.I)
 HREF = re.compile(rb"\bhref=[\"']?([^\"' >]+)", re.I)
