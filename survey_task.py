@@ -24,6 +24,7 @@ from pathlib import Path
 
 import core_crawl
 import core_fetch
+import core_scrape
 import core_render
 
 HERE = Path(__file__).resolve().parent
@@ -44,7 +45,7 @@ def bundle(summary, files):
 def slim(task, s):
     """The record kept on the hub: enough to see progress and outcomes without the bundle."""
     keep = ("code", "err", "final_url", "len", "ms", "redirects", "title", "load_ms", "n_requests", "total_ms", "main_url",
-            "mode", "pages", "templates", "stopped", "docs", "seconds")
+            "mode", "pages", "templates", "stopped", "docs", "seconds", "records", "types", "documents", "method", "family")
     return {"task": task, "egress": EGRESS, **{k: s.get(k) for k in keep if k in s}}
 
 
@@ -62,7 +63,7 @@ class Worker:
         self.ua = None
 
     async def start(self):
-        if self.task in ("fetch", "crawl"):
+        if self.task in ("fetch", "crawl", "scrape"):
             self.session = core_fetch.make_session()
         else:
             from playwright.async_api import async_playwright
@@ -79,7 +80,7 @@ class Worker:
         self.pages = 0
 
     async def stop(self):
-        if self.task in ("fetch", "crawl"):
+        if self.task in ("fetch", "crawl", "scrape"):
             await self.session.close()
         else:
             await self.browser.close()
@@ -106,6 +107,9 @@ class Worker:
             if self.task == "fetch":
                 summary, files = await asyncio.wait_for(core_fetch.fetch_host(self.session, p["url"]), 300)
                 n_req = len(summary.get("reqs") or {}) or 1
+            elif self.task == "scrape":
+                summary, files = await asyncio.wait_for(core_scrape.scrape_site(self.session, p["url"], family=p.get("family", "s3waas")), 5 * 3600)
+                n_req = summary.get("pages") or 1
             elif self.task == "crawl":
                 mode = p.get("mode", "deep")
                 limit = 5 * 3600 if mode == "full" else 3600
@@ -195,8 +199,8 @@ class LocalHub:
 def main():
     global EGRESS
     task = sys.argv[1] if len(sys.argv) > 1 else ""
-    if task not in ("fetch", "render", "crawl"):
-        sys.exit("usage: survey_task.py fetch|render|crawl [--local URL]")
+    if task not in ("fetch", "render", "crawl", "scrape"):
+        sys.exit("usage: survey_task.py fetch|render|crawl|scrape [--local URL]")
     if "--local" in sys.argv:
         hub = LocalHub(sys.argv[sys.argv.index("--local") + 1])
     else:

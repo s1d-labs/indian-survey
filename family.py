@@ -14,10 +14,16 @@ FAMILY = json.loads((Path(__file__).parent / "scrape.json").read_text())["family
 HOSTS = json.loads((Path(__file__).parent / "hosts.json").read_text())
 PLAN = json.loads((Path(__file__).parent / "crawlplan.json").read_text())   # from indian-status `survey crawl plan`
 IPS = {h["domain"]: h.get("ip") for h in HOSTS}
+SCRAPE = json.loads((Path(__file__).parent / "scrapeplan.json").read_text())   # from indian-status `survey scrape plan`
 
 
 def items():
     return [{"key": f"{i:05d}-{h['domain']}", "payload": {**h, "expected": 1}} for i, h in enumerate(HOSTS)]
+
+
+def scrape_items():
+    return [{"key": f"scrape-{i:04d}-{d}", "payload": {"domain": d, "url": v["url"], "ip": IPS.get(d), "family": v["family"], "expected": 1}}
+            for i, (d, v) in enumerate(SCRAPE.items())]
 
 
 def crawl_items(modes):
@@ -40,6 +46,8 @@ PROJECTS = [
     {"name": f"{FAMILY}-map", "title": "section map of every readable host (home + its sitemap page)", "task": "crawl",
      "target": "igod-map", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 30,
      "modes": ["map"]},
+    {"name": f"{FAMILY}-scrape", "title": "scraper smoke test: every page of a sample of sites per family, as records", "task": "scrape",
+     "target": "igod-scrape", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 30, "scrape": True},
 ]
 
 PROBES = []   # thousands of different hosts: no single health check means anything

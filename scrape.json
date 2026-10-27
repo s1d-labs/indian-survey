@@ -20,6 +20,11 @@
       "python",
       "survey_task.py",
       "crawl"
+    ],
+    "scrape": [
+      "python",
+      "survey_task.py",
+      "scrape"
     ]
   }
 }

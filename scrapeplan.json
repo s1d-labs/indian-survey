@@ -1,0 +1,296 @@
+{
+"hamirpur.nic.in": {
+"url": "https://hamirpur.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Uttar Pradesh"
+},
+"ujjain.nic.in": {
+"url": "https://ujjain.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Madhya Pradesh"
+},
+"patna.nic.in": {
+"url": "https://patna.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Bihar"
+},
+"www.nagapattinam.nic.in": {
+"url": "https://www.nagapattinam.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Tamil Nadu"
+},
+"beed.gov.in": {
+"url": "https://beed.gov.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Maharashtra"
+},
+"uttarakannada.nic.in": {
+"url": "https://uttarakannada.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Karnataka"
+},
+"kawardha.gov.in": {
+"url": "https://kawardha.gov.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Chhattisgarh"
+},
+"vadodara.nic.in": {
+"url": "https://vadodara.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Gujarat"
+},
+"palnadu.ap.gov.in": {
+"url": "https://palnadu.ap.gov.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Andhra Pradesh"
+},
+"simdega.nic.in": {
+"url": "https://simdega.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Jharkhand"
+},
+"faridkot.nic.in": {
+"url": "https://faridkot.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Punjab"
+},
+"amreli.nic.in": {
+"url": "https://amreli.nic.in",
+"family": "s3waas",
+"kind": "State portal / key site",
+"jurisdiction": "Gujarat"
+},
+"cmat.nta.nic.in": {
+"url": "https://cmat.nta.nic.in",
+"family": "s3waas",
+"kind": "Commission",
+"jurisdiction": "Union"
+},
+"fisheries.uk.gov.in": {
+"url": "https://fisheries.uk.gov.in",
+"family": "s3waas",
+"kind": "State department",
+"jurisdiction": "Uttarakhand"
+},
+"no2puneafs.kvs.ac.in": {
+"url": "https://no2puneafs.kvs.ac.in",
+"family": "s3waas-kvs",
+"kind": "School",
+"jurisdiction": "Maharashtra"
+},
+"jalipacantt.kvs.ac.in": {
+"url": "https://jalipacantt.kvs.ac.in",
+"family": "s3waas-kvs",
+"kind": "School",
+"jurisdiction": "Rajasthan"
+},
+"no1bhubaneswarshift2.kvs.ac.in": {
+"url": "https://no1bhubaneswarshift2.kvs.ac.in",
+"family": "s3waas-kvs",
+"kind": "School",
+"jurisdiction": "Odisha"
+},
+"rajahmundaryongc.kvs.ac.in": {
+"url": "https://rajahmundaryongc.kvs.ac.in",
+"family": "s3waas-kvs",
+"kind": "School",
+"jurisdiction": "Andhra Pradesh"
+},
+"bishnupur.dcourts.gov.in": {
+"url": "https://bishnupur.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"kind": "District court",
+"jurisdiction": "Manipur"
+},
+"sbsnagar.dcourts.gov.in": {
+"url": "https://sbsnagar.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"kind": "District court",
+"jurisdiction": "Union"
+},
+"hcbi.dcourts.gov.in": {
+"url": "https://hcbi.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"kind": "District court",
+"jurisdiction": "Union"
+},
+"ajmer.dcourts.gov.in": {
+"url": "https://ajmer.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"kind": "District court",
+"jurisdiction": "Rajasthan"
+},
+"pwdroads.assam.gov.in": {
+"url": "https://pwdroads.assam.gov.in",
+"family": "assam-drupal",
+"kind": "State department",
+"jurisdiction": "Assam"
+},
+"comtransport.assam.gov.in": {
+"url": "https://comtransport.assam.gov.in",
+"family": "assam-drupal",
+"kind": "State commission",
+"jurisdiction": "Assam"
+},
+"phed.mizoram.gov.in": {
+"url": "https://phed.mizoram.gov.in",
+"family": "mizoram-laravel",
+"kind": "State department",
+"jurisdiction": "Mizoram"
+},
+"fisheries.mizoram.gov.in": {
+"url": "https://fisheries.mizoram.gov.in",
+"family": "mizoram-laravel",
+"kind": "State department",
+"jurisdiction": "Mizoram"
+},
+"port.py.gov.in": {
+"url": "https://port.py.gov.in",
+"family": "puducherry-drupal",
+"kind": "State department",
+"jurisdiction": "Puducherry"
+},
+"dhte.py.gov.in": {
+"url": "https://dhte.py.gov.in",
+"family": "puducherry-drupal",
+"kind": "State department",
+"jurisdiction": "Puducherry"
+},
+"www.indembassysweden.gov.in": {
+"url": "https://www.indembassysweden.gov.in",
+"family": "mea-missions",
+"kind": "Indian mission abroad",
+"jurisdiction": "Abroad"
+},
+"www.indembkwt.gov.in": {
+"url": "https://www.indembkwt.gov.in",
+"family": "mea-missions",
+"kind": "Indian mission abroad",
+"jurisdiction": "Abroad"
+},
+"eoiconakry.gov.in": {
+"url": "https://eoiconakry.gov.in",
+"family": "mea-missions",
+"kind": "Indian mission abroad",
+"jurisdiction": "Abroad"
+},
+"klc.neva.gov.in": {
+"url": "https://klc.neva.gov.in",
+"family": "neva",
+"kind": "State legislature",
+"jurisdiction": "Karnataka"
+},
+"bla.neva.gov.in": {
+"url": "https://bla.neva.gov.in",
+"family": "neva",
+"kind": "State legislature",
+"jurisdiction": "Bihar"
+},
+"urban.rajasthan.gov.in": {
+"url": "https://urban.rajasthan.gov.in/townplanning",
+"family": "rajasthan-portal",
+"kind": "State department",
+"jurisdiction": "Rajasthan"
+},
+"quiz.mygov.in": {
+"url": "https://quiz.mygov.in",
+"family": "mygov-states",
+"kind": "Central PSU / company",
+"jurisdiction": "Union"
+},
+"bis.gov.in": {
+"url": "https://bis.gov.in",
+"family": "wordpress-other",
+"kind": "Statutory body",
+"jurisdiction": "Union"
+},
+"www.upvetuniv.edu.in": {
+"url": "https://www.upvetuniv.edu.in",
+"family": "wordpress-other",
+"kind": "School",
+"jurisdiction": "Uttar Pradesh"
+},
+"mpeda.gov.in": {
+"url": "https://mpeda.gov.in",
+"family": "wordpress-other",
+"kind": "Statutory body",
+"jurisdiction": "Union"
+},
+"mvdnagaland.in": {
+"url": "https://mvdnagaland.in",
+"family": "wordpress-other",
+"kind": "State department",
+"jurisdiction": "Nagaland"
+},
+"www.clinicalestablishments.kerala.gov.in": {
+"url": "https://www.clinicalestablishments.kerala.gov.in",
+"family": "kerala-wordpress",
+"kind": "Other state body",
+"jurisdiction": "Kerala"
+},
+"lmd.kerala.gov.in": {
+"url": "https://lmd.kerala.gov.in",
+"family": "kerala-wordpress",
+"kind": "State department",
+"jurisdiction": "Kerala"
+},
+"aptel.gov.in": {
+"url": "https://aptel.gov.in",
+"family": "drupal-other",
+"kind": "Tribunal",
+"jurisdiction": "Union"
+},
+"goawrd.gov.in": {
+"url": "https://goawrd.gov.in",
+"family": "drupal-other",
+"kind": "State department",
+"jurisdiction": "Goa"
+},
+"scstpmsonline.bihar.gov.in": {
+"url": "https://scstpmsonline.bihar.gov.in",
+"family": "nic-hosted-aspnet",
+"kind": "State scheme / application",
+"jurisdiction": "Bihar"
+},
+"labour.sikkim.gov.in": {
+"url": "https://labour.sikkim.gov.in",
+"family": "nic-hosted-aspnet",
+"kind": "State department",
+"jurisdiction": "Sikkim"
+},
+"www.ssachd.nic.in": {
+"url": "https://www.ssachd.nic.in",
+"family": "nic-gigw-template",
+"kind": "State institution",
+"jurisdiction": "Chandigarh"
+},
+"kvklowersubansiri.nic.in": {
+"url": "https://kvklowersubansiri.nic.in",
+"family": "custom-other",
+"kind": "State institution",
+"jurisdiction": "Arunachal Pradesh"
+},
+"www.isid.ac.in": {
+"url": "https://www.isid.ac.in",
+"family": "custom-other",
+"kind": "Institution",
+"jurisdiction": "Delhi"
+},
+"ranchi.nic.in": {
+"url": "https://ranchi.nic.in",
+"family": "s3waas",
+"kind": "District administration",
+"jurisdiction": "Jharkhand"
+}
+}
