@@ -32,12 +32,12 @@ from selectolax.parser import HTMLParser
 
 # header text (any language the sites use) -> field name
 HEADERS = [
-    (r"^(title|subject|शीर्षक|विषय|शिर्षक|தலைப்பு|ಶೀರ್ಷಿಕೆ|శీర్షిక|শিরোনাম|શીર્ષક|ਸਿਰਲੇਖ|ശീർഷകം|शीर्षक)", "title"),
+    (r"^(title|subject|शीर्षक|विषय|शिर्षक|தலைப்பு|ಶೀರ್ಷಿಕೆ|శీర్షిక|শিরোনাম|શીર્ષક|ਸਿਰਲੇਖ|ശീർഷകം|തലക്കെട്ട്|ଶୀର୍ଷକ|শিৰোনাম|शीर्षक)", "title"),
     (r"^(description|details|विवरण|वर्णन|விவரம்|ವಿವರಣೆ|వివరణ|বিবরণ|વર્ણન|ਵੇਰਵਾ|വിവരണം)", "description"),
     (r"^(start date|प्रारंभ तिथि|प्रारम्भ तिथि|आरंभ दिनांक|सुरुवात|தொடக்க|ಪ್ರಾರಂಭ|ప్రారంభ|শুরুর|શરૂઆત|ਸ਼ੁਰੂ)", "start_date"),
     (r"^(end date|last date|अंतिम तिथि|अन्तिम तिथि|शेवटची|இறுதி|ಅಂತಿಮ|ముగింపు|শেষ|અંતિમ|ਆਖਰੀ)", "end_date"),
-    (r"^(date|dated|publish|दिनांक|तारीख|तिथि|தேதி|ದಿನಾಂಕ|తేదీ|তারিখ|તારીખ|ਮਿਤੀ)", "date"),
-    (r"^(file|view|download|attachment|फ़ाइल|फाइल|देखें|डाउनलोड|கோப்பு|ಕಡತ|ఫైల్|ফাইল|ફાઇલ|ਫਾਈਲ)", "file"),
+    (r"^(date|dated|publish|दिनांक|तारीख|तिथि|தேதி|ದಿನಾಂಕ|తేదీ|তারিখ|તારીખ|ਮਿਤੀ|തീയതി|ତାରିଖ|তাৰিখ|प्रकाशन दिनांक)", "date"),
+    (r"^(file|view|download|attachment|फ़ाइल|फाइल|देखें|डाउनलोड|கோப்பு|ಕಡತ|ఫైల్|ফাইল|ફાઇલ|ਫਾਈਲ|ഫയൽ|കാണുക|ଫାଇଲ|చూడండి|హక్కు)", "file"),
     (r"^(name|नाम|பெயர்|ಹೆಸರು|పేరు|নাম|નામ|ਨਾਮ)", "name"),
     (r"^(designation|post|पद|पदनाम|பதவி|ಹುದ್ದೆ|హోదా|পদবি|હોદ્દો|ਅਹੁਦਾ)", "designation"),
     (r"^(phone|mobile|contact|telephone|landline|फ़ोन|फोन|मोबाइल|संपर्क|தொலைபேசி|ದೂರವಾಣಿ|ఫోన్|ফোন|ફોન|ਫ਼ੋਨ)", "phone"),
@@ -50,6 +50,28 @@ SIZE = re.compile(r"\(?\s*([\d.]+)\s*(KB|MB|GB|bytes)\s*\)?", re.I)
 DATE = re.compile(r"\b(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})\b")
 LABEL = re.compile(r"^\s*([^:：]{1,40})\s*[:：]\s*(.+)$", re.S)
 # S3WaaS body classes -> record type
+# fixed page slugs -> record type, per family (pages are free-form WordPress pages with a table or PDF).
+# personal: rows name private people (staff pay, students) -> flagged so a pipeline can drop or redact them
+SLUG_TYPES = {
+    "s3waas-kvs": {
+        "शिक्षक-रिक्ति": ("vacancy", False), "विद्यार्थी-रिक्ति": ("student_vacancy", False), "प्रवेश-श्रेणी-वार-नामांक": ("enrolment", False),
+        "शुल्क-संरचना": ("fees", False), "परिणाम-विश्लेषण": ("results", False), "कार्मिकों-का-विवरण": ("staff", True),
+        "कार्मिकों-का-मासिक-पारिश्रमिक": ("staff_pay", True), "जारी-स्थानांतरण-प्रमाणपत्र": ("transfer_certificates", True),
+        "संविदा-कर्मचारी": ("contract_staff", True), "आरटीआई": ("rti", False), "प्रवेश-दिशानिर्देश": ("admission_guidelines", False),
+        "प्रवेश-विवरण": ("admission", False), "विद्यालय-योजना": ("school_plan", False), "क्रियाकलापों-का-कैलेंडर": ("calendar", False),
+        "विद्यार्थी-उपलब्धि": ("student_achievements", True), "शिक्षक-उपलब्धि": ("teacher_achievements", False),
+    },
+    "s3waas-ecourts": {
+        "list-of-judges": ("judge_list", False), "judges-on-leave": ("judges_on_leave", False), "duty-magistrate": ("duty_roster", False),
+        "police-station-wise-magistrate": ("magistrate_roster", False), "holiday-list": ("holidays", False), "former-judges": ("former_judges", False),
+    },
+    "s3waas": {
+        "whos-who": ("official_list", False), "helpline": ("helplines", False), "directory": ("directory", False),
+        "subdivision-blocks": ("admin_units", False), "tehsil": ("admin_units", False), "village-panchayats": ("admin_units", False),
+        "demography": ("statistics", False), "administrative-setup": ("admin_units", False),
+    },
+}
+
 KINDS = [
     (r"\b(tax-notice[_-]category|single-notice)\b", "notice"),
     (r"\b(tax-document-category|single-document|page-template-document)\b", "document"),
@@ -60,6 +82,10 @@ KINDS = [
     (r"\b(single-tourist-place|page-template-tourist-place)\b", "place"),
     (r"\b(single-event|page-template-events|page-template-upcoming-events)\b", "event"),
     (r"\b(single-publication|tax-publication-type)\b", "publication"),
+    (r"\b(single-scheme|page-template-scheme|tax-scheme-category)\b", "scheme"),
+    (r"\b(page-template-forms|single-form)\b", "document"),
+    (r"\b(tax-whats-new|single-whats-new)\b", "notice"),
+    (r"\b(single-testimonial)\b", "media"),
     (r"\b(single-gallery|single-video|page-template-gallery)\b", "media"),
     (r"\b(single-post|category)\b", "post"),
     (r"\bpage-template-sitemap\b", "sitemap"),
@@ -85,7 +111,7 @@ def field_of(header):
     for rx, f in HEADERS:
         if rx.search(h):
             return f
-    return re.sub(r"\W+", "_", h).strip("_")[:40] or "col"
+    return re.sub(r"[^\w\u0900-\u0DFF]+", "_", h).strip("_")[:40] or "col"
 
 
 def to_iso(s):
@@ -215,6 +241,8 @@ def extract(url, html, family="s3waas"):
     for bad in tree.css("script, style, noscript, svg, header, footer, nav, .printShare, .breadcrumb-outer, .skip-content"):
         bad.decompose()
     node = main_node(tree)
+    if node is None:
+        return page_kind(classes, url), [], {"kind": "empty", "classes": classes[:300], "title": "", "records": 0, "tables": 0}
     h1 = node.css_first("h1") or tree.css_first("h1")
     title = clean(h1.text()) if h1 else clean((tree.css_first("title") or node).text())[:200]
     path = unquote(urlsplit(url).path)
@@ -248,15 +276,20 @@ def extract(url, html, family="s3waas"):
         desc = node.css_first(".detail-div")
         recs.append({**base, "type": "place", "name": title, "lat": float(m.group(1)) if m else None, "lon": float(m.group(2)) if m else None,
                      "description": clean(desc.text())[:3000] if desc else None, "how_to_reach": reach})
+    elif kind == "scheme" and "single-" in classes:
+        recs.append({**base, "type": "scheme", "name": title, **pairs(node), "text": clean(node.text())[:5000],
+                     "documents": docs_in(node, url), "tables": tabs[:5]})
     elif kind in ("event", "post") and ("single-" in classes):
         recs.append({**base, "type": kind, "title": title, "date": to_iso(node.text()), "text": clean(node.text())[:4000],
                      "documents": docs_in(node, url)})
     # free-form pages, and tables on any page not taken above: keep every table as rows
     if not recs and kind not in ("media", "sitemap", "home"):
         text = clean(node.text())
+        slug = segs[-1].lower() if segs else ""
+        typ, personal = next(((t, pf) for k, (t, pf) in (SLUG_TYPES.get(family) or {}).items() if slug.startswith(k[:24])), ("page", False))
         if tabs or len(text) > 200 or docs_in(node, url):
-            recs.append({**base, "type": "page", "title": title, "text": text[:6000], "tables": tabs[:20], "pairs": pairs(node),
-                         "documents": docs_in(node, url)[:300]})
+            recs.append({**base, "type": typ, "title": title, "slug": slug, "personal_data": personal, "text": text[:6000],
+                         "tables": tabs[:20], "pairs": pairs(node), "documents": docs_in(node, url)[:300]})
     return kind, recs, {"kind": kind, "classes": classes[:300], "title": title, "records": len(recs), "tables": len(tabs)}
 
 
