@@ -259,20 +259,6 @@ def main():
             EGRESS = HubClient._egress_ip() or ""
         except Exception:  # noqa: BLE001
             EGRESS = ""
-# politeness per server: sites that share an IP with many others (68 Mizoram sites on one Google IP, 154 Delhi sites on
-# one Airtel IP) get one request at a time and a gap that grows with the group; others get 3 at a time
-try:
-    _hosts = json.loads((HERE / "hosts.json").read_text())
-    IP_GROUP = __import__("collections").Counter(h.get("ip") for h in _hosts if h.get("ip"))
-except (OSError, ValueError):
-    IP_GROUP = {}
-
-
-def pace(ip):
-    n = IP_GROUP.get(ip, 1) if ip else 1
-    if n <= 3:
-        return {"conc": 3, "gap": 0.3}
-    return {"conc": 1, "gap": min(6.0, 0.5 * n / 4)}
     signal.signal(signal.SIGTERM, lambda *a: (_ for _ in ()).throw(KeyboardInterrupt()))
     try:
         asyncio.run(Worker(task, hub).run())
