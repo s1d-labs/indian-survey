@@ -48,3 +48,12 @@ def test_task_completes(monkeypatch, task, mode):
     asyncio.run(go())
     assert hub.done == ["k1"] and not hub.failed, hub.failed
     assert hub.uploads and hub.records
+
+
+def test_stale_worker_refuses_newer_items(monkeypatch):
+    monkeypatch.setattr(core_crawl, "count_site", fake_site)
+    hub = Hub()
+    w = survey_task.Worker("crawl", hub)
+    item = {"key": "k2", "payload": {"domain": "x.gov.in", "url": "https://x.gov.in/", "mode": "count", "v": survey_task.CODE_VERSION + 1}}
+    asyncio.run(w.guarded(item))
+    assert hub.failed == ["k2"] and not hub.uploads and w.retiring

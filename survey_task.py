@@ -71,6 +71,16 @@ class VantageBlocked(Exception):
     pass
 
 
+class StaleWorker(Exception):
+    pass
+
+
+try:
+    from family import CODE_VERSION
+except ImportError:
+    CODE_VERSION = 0
+
+
 def pace(ip):
     n = IP_GROUP.get(ip, 1) if ip else 1
     if n <= 3:
@@ -126,6 +136,9 @@ class Worker:
 
     async def one(self, item):
         p = item["payload"]
+        if int(p.get("v") or 0) > CODE_VERSION:   # seeded for newer code than this runner checked out
+            self.retiring = True
+            raise StaleWorker(f"item needs code v{p.get('v')}, this runner has v{CODE_VERSION}")
         ip = p.get("ip") or p["domain"]
         async with self.ip_locks[ip]:
             wait = self.ip_pause[ip] - time.monotonic()
@@ -186,6 +199,9 @@ class Worker:
     async def guarded(self, item):
         try:
             await self.one(item)
+        except StaleWorker as r:      # back to the queue for a runner on current code; this one retires
+            self.hub.metric("stale_worker")
+            self.hub.complete([item["key"]], "failed", error=str(r)[:150])
         except VantageBlocked as r:   # back to the queue for a runner NIC still lets in
             self.hub.metric("vantage_blocked")
             self.hub.complete([item["key"]], "failed", error=str(r)[:150])
@@ -309,7 +325,7 @@ def main():
         hub.close("failed", "stopped: time is up")
         return
     if worker.retiring:
-        hub.close("failed", f"NIC blocks this runner ({EGRESS or 'unknown IP'}): retiring it so the pool starts a fresh VM")
+        hub.close("failed", f"retiring this runner (NIC block on {EGRESS or 'unknown IP'}, or older code than the queue) so the pool starts a fresh VM")
         if "--local" not in sys.argv:
             os.kill(os.getppid(), signal.SIGTERM)   # the pool worker stops; this VM's job ends, the dispatcher starts a new one
         return

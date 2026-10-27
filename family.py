@@ -11,6 +11,8 @@ import json
 from pathlib import Path
 
 FAMILY = json.loads((Path(__file__).parent / "scrape.json").read_text())["family"]
+# bump with every change to how a task runs: items carry it, and a worker on older code refuses newer items
+CODE_VERSION = 3
 HOSTS = json.loads((Path(__file__).parent / "hosts.json").read_text())
 PLAN = json.loads((Path(__file__).parent / "crawlplan.json").read_text())   # from indian-status `survey crawl plan`
 IPS = {h["domain"]: h.get("ip") for h in HOSTS}
@@ -32,12 +34,13 @@ def crawl_items(modes):
         run_as = {"census": "count", "census2": "count"}.get(mode, mode)   # census = the page census (count) re-run on fixed code
         for i, (d, v) in enumerate(PLAN[mode].items()):
             out.append({"key": f"{mode}-{i:05d}-{d}", "payload": {"domain": d, "url": v["url"], "ip": IPS.get(d), "mode": run_as,
-                                                                   "family": v["family"], "expected": 1}})
+                                                                   "family": v["family"], "v": CODE_VERSION, "expected": 1}})
     return out
 
 
 def scrape10_items():
-    return [{"key": f"scrape10-{i:04d}-{d}", "payload": {"domain": d, "url": v["url"], "ip": IPS.get(d), "family": v["family"], "expected": 1}}
+    return [{"key": f"scrape10-{i:04d}-{d}", "payload": {"domain": d, "url": v["url"], "ip": IPS.get(d), "family": v["family"],
+                                                           "v": CODE_VERSION, "expected": 1}}
             for i, (d, v) in enumerate(PLAN["scrape10"].items())]
 
 
