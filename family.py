@@ -29,10 +29,16 @@ def scrape_items():
 def crawl_items(modes):
     out = []
     for mode in modes:
+        run_as = {"census": "count"}.get(mode, mode)   # census = the page census (count) re-run on fixed code
         for i, (d, v) in enumerate(PLAN[mode].items()):
-            out.append({"key": f"{mode}-{i:05d}-{d}", "payload": {"domain": d, "url": v["url"], "ip": IPS.get(d), "mode": mode,
+            out.append({"key": f"{mode}-{i:05d}-{d}", "payload": {"domain": d, "url": v["url"], "ip": IPS.get(d), "mode": run_as,
                                                                    "family": v["family"], "expected": 1}})
     return out
+
+
+def scrape10_items():
+    return [{"key": f"scrape10-{i:04d}-{d}", "payload": {"domain": d, "url": v["url"], "ip": IPS.get(d), "family": v["family"], "expected": 1}}
+            for i, (d, v) in enumerate(PLAN["scrape10"].items())]
 
 
 PROJECTS = [
@@ -49,6 +55,12 @@ PROJECTS = [
     {"name": f"{FAMILY}-count", "title": "page census of every readable host: discovered pages, listings, items", "task": "crawl",
      "target": "igod-count", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 80,
      "modes": ["count"]},
+    {"name": f"{FAMILY}-census", "title": "page census of every readable host (re-run on the fixed worker)", "task": "crawl",
+     "target": "igod-census", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 60,
+     "modes": ["census"]},
+    {"name": f"{FAMILY}-scrape10", "title": "the scraper on the 10% stratified sample (every page, as records)", "task": "scrape",
+     "target": "igod-scrape10", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 60,
+     "scrape10": True},
     {"name": f"{FAMILY}-scrape", "title": "scraper smoke test: every page of a sample of sites per family, as records", "task": "scrape",
      "target": "igod-scrape", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 30, "scrape": True},
 ]

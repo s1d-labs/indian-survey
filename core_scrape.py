@@ -342,7 +342,7 @@ async def wp_api(session, origin, per_page=100, max_pages=50):
     return recs
 
 
-async def scrape_site(session, start_url, family="s3waas", mirrors=False, max_pages=20000, gap=0.6, budget_s=4 * 3600):
+async def scrape_site(session, start_url, family="s3waas", mirrors=False, max_pages=20000, gap=0.6, budget_s=4 * 3600, conc=1):
     t0 = time.monotonic()
     host = urlsplit(start_url).hostname
     origin = f"{urlsplit(start_url).scheme}://{urlsplit(start_url).netloc}"
@@ -362,23 +362,24 @@ async def scrape_site(session, start_url, family="s3waas", mirrors=False, max_pa
     frontier, queued, n = [start_url], {start_url}, 0
     kinds, types = Counter(), Counter()
     docs = set()
-    while frontier and n < max_pages and time.monotonic() - t0 < budget_s:
-        url = frontier.pop(0)
-        if n:
-            await asyncio.sleep(gap)
+    inflight = 0
+
+    async def page(url):
+        nonlocal n
+        await asyncio.sleep(gap)
         meta, body = await get(session, url, 3_000_000)
         n += 1
         ctype = dict((k.lower(), v) for k, v in meta["headers"]).get("content-type", "")
         if not body or "html" not in ctype:
             pages.append({"url": url, "code": meta["code"], "kind": None, "records": 0})
-            continue
+            return
         final = meta["final_url"] or url
         if not same_site(host, urlsplit(final).hostname):
             pages.append({"url": url, "code": meta["code"], "kind": "offsite", "records": 0})
-            continue
+            return
         html = body.decode("utf-8", "replace")
         try:
-            kind, recs, ps = extract(final, html, family)
+            kind, recs, ps = await asyncio.to_thread(extract, final, html, family)   # parsing off the event loop
         except Exception as e:  # noqa: BLE001: one odd page never stops a site
             kind, recs, ps = "error", [], {"kind": "error", "error": f"{type(e).__name__}: {e}"[:200]}
         kinds[kind] += 1
@@ -401,6 +402,26 @@ async def scrape_site(session, start_url, family="s3waas", mirrors=False, max_pa
                 continue
             queued.add(u)
             frontier.append(u)
+
+    async def worker():
+        nonlocal inflight
+        while n < max_pages and time.monotonic() - t0 < budget_s:
+            if not frontier:
+                if inflight == 0:
+                    return
+                await asyncio.sleep(0.05)
+                continue
+            url = frontier.pop(0)
+            inflight += 1
+            try:
+                await page(url)
+            finally:
+                inflight -= 1
+
+    # `conc` requests at a time to this site; the first page alone so the frontier fills first
+    if frontier:
+        await page(frontier.pop(0))
+    await asyncio.gather(*(worker() for _ in range(max(1, conc))))
     summary = {"url": start_url, "family": family, "method": "crawl", "pages": n, "records": len(records), "kinds": dict(kinds),
                "types": dict(types), "documents": len(docs), "frontier_left": len(frontier), "mirrors": mirrors,
                "stopped": "budget" if frontier else "exhausted", "seconds": int(time.monotonic() - t0)}

@@ -136,7 +136,8 @@ class Worker:
                 summary, files = await asyncio.wait_for(core_fetch.fetch_host(self.session, p["url"]), 300)
                 n_req = len(summary.get("reqs") or {}) or 1
             elif self.task == "scrape":
-                summary, files = await asyncio.wait_for(core_scrape.scrape_site(self.session, p["url"], family=p.get("family", "s3waas")), 5 * 3600)
+                summary, files = await asyncio.wait_for(core_scrape.scrape_site(self.session, p["url"], family=p.get("family", "s3waas"),
+                                                                                **pace(p.get("ip"))), 5 * 3600)
                 n_req = summary.get("pages") or 1
             elif self.task == "crawl" and p.get("mode") == "count":
                 summary, files = await asyncio.wait_for(core_crawl.count_site(self.session, p["url"], **pace(p.get("ip"))), 2.5 * 3600)
