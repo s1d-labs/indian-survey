@@ -72,6 +72,23 @@ SLUG_TYPES = {
     },
 }
 
+# families without WordPress body classes: URL prefix -> record type (first match wins)
+FAMILY_URLS = {
+    "assam-drupal": [(r"^/(archives|all-whats-new|whats-new)", "notice"), (r"^/(event-created|all-events|events?)(/|$)", "event"),
+                     (r"^/(documents?|documents-detail)(/|$)", "document"), (r"^/(tenders?-list-page|tenders?)(/|$)", "tender"),
+                     (r"^/(scheme-page|schemes?)(/|$)", "scheme"), (r"^/(whos-who|organigram|hod)(/|$)", "official_list"),
+                     (r"^/taxonomy/term/", "listing")],
+    "mizoram-laravel": [(r"^/post/", "post"), (r"^/(category|posts)(/|$)", "listing"), (r"^/page/", "page")],
+    "neva": [(r"^/member", "member"), (r"^/contactdirectory", "official_list"), (r"^/questions", "question"), (r"^/debates", "debate"),
+             (r"^/bill", "bill"), (r"^/committee", "committee"), (r"^/(notice|business|today)", "notice")],
+    "mea-missions": [(r"^/(section|archive|page-links|listview|list)(/|$)", "listing"), (r"^/(press-release|whats-new|tenders?)(\.php)?", "notice"),
+                     (r"^/(page|pages|content)/", "page")],
+    "puducherry-drupal": [(r"^/(notice-board|circular|notifications?)(/|$)", "notice"), (r"^/tenders?(/|$)", "tender"),
+                          (r"^/recruitments?(/|$)", "vacancy"), (r"^/(acts-rules|programmes-schemes)(/|$)", "document"),
+                          (r"^/whos-who", "official_list")],
+}
+FAMILY_URLS = {k: [(re.compile(p, re.I), t) for p, t in v] for k, v in FAMILY_URLS.items()}
+
 KINDS = [
     (r"\b(tax-notice[_-]category|single-notice)\b", "notice"),
     (r"\b(tax-document-category|single-document|page-template-document)\b", "document"),
@@ -287,6 +304,11 @@ def extract(url, html, family="s3waas"):
         text = clean(node.text())
         slug = segs[-1].lower() if segs else ""
         typ, personal = next(((t, pf) for k, (t, pf) in (SLUG_TYPES.get(family) or {}).items() if slug.startswith(k[:24])), ("page", False))
+        if typ == "page" and family in FAMILY_URLS:
+            typ = next((t for rx, t in FAMILY_URLS[family] if rx.search(path)), "page")
+        if typ == "post":   # a dated item with attachments (Laravel posts)
+            recs.append({**base, "type": "post", "title": title, "date": to_iso(text), "text": text[:6000], "documents": docs_in(node, url)[:100]})
+            return kind, recs, {"kind": kind, "classes": classes[:300], "title": title, "records": 1, "tables": len(tabs)}
         if tabs or len(text) > 200 or docs_in(node, url):
             recs.append({**base, "type": typ, "title": title, "slug": slug, "personal_data": personal, "text": text[:6000],
                          "tables": tabs[:20], "pairs": pairs(node), "documents": docs_in(node, url)[:300]})
