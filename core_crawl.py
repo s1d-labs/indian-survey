@@ -13,6 +13,8 @@ kept without values. The crawl walks the site breadth-first, one request at a ti
   map   the home page and the site's own HTML sitemap page(s): which sections a site has, in 2-3 requests
   full  every page reachable by links (no per-template cap), to count how many pages a site really has; HTML is
         kept for the first `per_template` pages of each template only
+  count every page the home page and the sitemap page link to (up to 300); for each paginated listing also its last
+        page, so items = rows per page x pages; whether listed items have their own detail pages. No HTML kept.
 
 Returns (summary, files): files["index.json"] lists every page fetched (url, final url, code, type, template,
 depth, title, size); files["pNNNNN.html"] holds each HTML body.
@@ -111,6 +113,7 @@ async def crawl_site(session, start_url, mode="deep", max_pages=1500, per_templa
     frontier = [(start_url, 0, "")]
     queued.add(start_url)
     docs_seen, doc_hosts = set(), Counter()
+    discovered = {start_url}   # every same-site page URL seen linked, fetched or not
     rp, last_new, n = None, 0, 0
     visited_t = set()
 
@@ -163,6 +166,9 @@ async def crawl_site(session, start_url, mode="deep", max_pages=1500, per_templa
                 if du not in docs_seen:
                     docs_seen.add(du)
                     doc_hosts[urlsplit(du).hostname or ""] += 1
+            for u, _ in pages:
+                if same_site(host, urlsplit(u).hostname) and not SKIP_PATH.search(urlsplit(u).path):
+                    discovered.add(u)
             if mode in ("deep", "full"):
                 for u, label in pages:
                     enqueue(u, depth + 1, label)
@@ -185,7 +191,100 @@ async def crawl_site(session, start_url, mode="deep", max_pages=1500, per_templa
     summary = {"url": start_url, "mode": mode, "pages": n, "templates": len(templates), "frontier_left": len(frontier),
                "queued_templates": len(seen_t), "stopped": "max_pages" if n >= max_pages else "saturated" if frontier else "exhausted",
                "docs": len(docs_seen), "doc_hosts": dict(doc_hosts.most_common(10)), "seconds": int(time.monotonic() - t0),
-               "robots": rp is not None}
+               "robots": rp is not None, "discovered": len(discovered)}
     files["index.json"] = json.dumps(index, ensure_ascii=False).encode()
     files["docs.json"] = json.dumps(sorted(docs_seen)[:20000], ensure_ascii=False).encode()
+    files["discovered.json"] = json.dumps(sorted(discovered)[:50000], ensure_ascii=False).encode()
     return summary, files
+
+
+PAGER = re.compile(r"""href\s*=\s*["']([^"']*?(?:/page/(\d{1,5})/?|[?&](?:page|paged)=(\d{1,5}))(?:[&#][^"']*)?)["']""", re.I)
+
+
+def listing_stats(url, html, host):
+    """rows / cards / post links on a page, the last page number among its pagination links, and how many listed items
+    link to an internal detail page (not a document, not a pager)."""
+    from selectolax.parser import HTMLParser
+    t = HTMLParser(html)
+    for bad in t.css("header, footer, nav, script, style"):
+        bad.decompose()
+    main = t.css_first("#maincontent") or t.css_first("main") or t.css_first("#content") or t.body
+    if main is None:
+        return {"rows": 0, "last_page": 1, "detail_links": 0, "docs": 0}
+    rows = max((len([tr for tr in tb.css("tr") if tr.css("td")]) for tb in main.css("table")), default=0)
+    cards = len(main.css("li.public-utlty-catg, .views-row, article, .card, .post-item, .news-item"))
+    posts = len({a.attributes.get("href") for a in main.css("a[href]") if re.search(r"/(post|node|notice|document|news|event)s?/[^/]+/?$", a.attributes.get("href") or "")})
+    items = max(rows, cards, posts)
+    base_path = urlsplit(url).path.rstrip("/")
+    last = 1
+    own = re.sub(r"/page/\d+$", "", base_path)
+    for m in PAGER.finditer(html[:3_000_000]):
+        h = urljoin(url, m.group(1).replace("&amp;", "&"))
+        hp = re.sub(r"/page/\d+/?$", "", urlsplit(h).path.rstrip("/"))
+        if hp == own and same_site(host, urlsplit(h).hostname):   # pagination of this very listing, nothing else
+            last = max(last, int(m.group(2) or m.group(3)))
+    detail = 0
+    for a in main.css("tr a[href], li a[href], article a[href], .views-row a[href]"):
+        h = urljoin(url, a.attributes.get("href") or "")
+        p = urlsplit(h)
+        if same_site(host, p.hostname) and not DOC_EXT.search(p.path) and not PAGER.search(f'href="{h}"') and p.path.rstrip("/") != base_path:
+            detail += 1
+    docs = sum(1 for a in main.css("a[href]") if DOC_EXT.search(urlsplit(a.attributes.get("href") or "").path))
+    return {"rows": items, "last_page": min(last, 20000), "detail_links": detail, "docs": docs}
+
+
+async def count_site(session, start_url, gap=0.5, budget_s=2 * 3600):
+    """Page census of one site: a discovery crawl (2 pages per template, so archives and every free-form page are
+    reached), then for each paginated listing its last page: items = rows per page x pages. Reports linked pages,
+    extra listing pages, listed items, detail pages (items whose rows link to their own page) and language mirrors."""
+    t0 = time.monotonic()
+    host = urlsplit(start_url).hostname
+    summary, files = await crawl_site(session, start_url, mode="deep", per_template=2, stop_after=200, gap=gap, budget_s=budget_s)
+    idx = json.loads(files["index.json"])
+    pages, seen_lists = [], set()
+    for r in idx:
+        rec = {"url": r["url"], "template": r["template"], "code": r["code"]}
+        body = files.get(f"p{r['i']:05d}.html")
+        if r["code"] == 200 and body:
+            st = listing_stats(r.get("final") or r["url"], body.decode("utf-8", "replace"), host)
+            rec.update(st)
+            base = re.sub(r"/page/\d+/?$", "", (r.get("final") or r["url"]).rstrip("/"))
+            if st["last_page"] > 1 and base not in seen_lists and time.monotonic() - t0 < budget_s:
+                seen_lists.add(base)
+                await asyncio.sleep(gap)
+                last_url = base + f"/page/{st['last_page']}/"
+                m2, b2 = await get(session, last_url, 2_000_000)
+                if m2["code"] == 200 and b2:
+                    rec["last_rows"] = listing_stats(last_url, b2.decode("utf-8", "replace"), host)["rows"]
+                rows, last = st["rows"], st["last_page"]
+                rec["items"] = rows * (last - 1) + rec.get("last_rows", rows)
+                rec["listing"] = base
+        pages.append(rec)
+    lists = {}
+    for p in pages:   # one entry per listing (page 1 and page N of a listing are the same listing)
+        if p.get("listing"):
+            lists[p["listing"]] = p
+    ok = [p for p in pages if p.get("code") == 200]
+    mirror = sum(1 for p in pages if [x for x in urlsplit(p["url"]).path.split("/") if x][:1] and
+                 [x for x in urlsplit(p["url"]).path.split("/") if x][0].lower() in LANGS)
+    tpl_pages = Counter(p["template"] for p in ok)
+    est = {
+        "fetched_ok": len(ok), "templates": len(tpl_pages),
+        "listings": len(lists),
+        "listing_pages": sum(p["last_page"] for p in lists.values()),
+        "listed_items": sum(p.get("items", 0) for p in lists.values()),
+        "detail_items": sum(p.get("items", 0) for p in lists.values() if p.get("detail_links", 0) >= max(1, p.get("rows", 0) // 2)),
+        "mirror_pages_seen": mirror,
+    }
+    disc = json.loads(files.get("discovered.json", b"[]"))
+    seen_pages = Counter(re.sub(r"/page/\d+/?$", "", u.rstrip("/")) for u in disc if re.search(r"/page/\d+/?$", u))
+    unseen_listing_pages = sum(max(0, p["last_page"] - 1 - seen_pages.get(base, 0)) for base, p in lists.items())
+    mirror_disc = sum(1 for u in disc if [x for x in urlsplit(u).path.split("/") if x][:1] and [x for x in urlsplit(u).path.split("/") if x][0].lower() in LANGS)
+    est["discovered"] = len(disc)
+    est["discovered_mirror"] = mirror_disc
+    est["unseen_listing_pages"] = unseen_listing_pages
+    est["pages_estimate"] = len(disc) - mirror_disc + unseen_listing_pages + est["detail_items"]
+    est["pages_estimate_with_mirrors"] = len(disc) + unseen_listing_pages * (2 if mirror_disc else 1) + est["detail_items"] * (2 if mirror_disc else 1)
+    out = {"url": start_url, "mode": "count", "pages": summary["pages"] + len(seen_lists), "stopped": summary["stopped"],
+           "seconds": int(time.monotonic() - t0), "docs": summary.get("docs"), **est}
+    return out, {"index.json": json.dumps(pages, ensure_ascii=False).encode()}

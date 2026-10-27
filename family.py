@@ -46,6 +46,9 @@ PROJECTS = [
     {"name": f"{FAMILY}-map", "title": "section map of every readable host (home + its sitemap page)", "task": "crawl",
      "target": "igod-map", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 30,
      "modes": ["map"]},
+    {"name": f"{FAMILY}-count", "title": "page census of every readable host: discovered pages, listings, items", "task": "crawl",
+     "target": "igod-count", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 80,
+     "modes": ["count"]},
     {"name": f"{FAMILY}-scrape", "title": "scraper smoke test: every page of a sample of sites per family, as records", "task": "scrape",
      "target": "igod-scrape", "env": {}, "probe": None, "unit_label": "site", "record_label": "site", "max_workers": 30, "scrape": True},
 ]

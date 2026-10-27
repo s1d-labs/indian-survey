@@ -45,7 +45,8 @@ def bundle(summary, files):
 def slim(task, s):
     """The record kept on the hub: enough to see progress and outcomes without the bundle."""
     keep = ("code", "err", "final_url", "len", "ms", "redirects", "title", "load_ms", "n_requests", "total_ms", "main_url",
-            "mode", "pages", "templates", "stopped", "docs", "seconds", "records", "types", "documents", "method", "family")
+            "mode", "pages", "templates", "stopped", "docs", "seconds", "records", "types", "documents", "method", "family",
+            "discovered", "listings", "listing_pages", "listed_items", "detail_items", "pages_estimate", "pages_estimate_with_mirrors")
     return {"task": task, "egress": EGRESS, **{k: s.get(k) for k in keep if k in s}}
 
 
@@ -110,6 +111,8 @@ class Worker:
             elif self.task == "scrape":
                 summary, files = await asyncio.wait_for(core_scrape.scrape_site(self.session, p["url"], family=p.get("family", "s3waas")), 5 * 3600)
                 n_req = summary.get("pages") or 1
+            elif self.task == "crawl" and p.get("mode") == "count":
+                summary, files = await asyncio.wait_for(core_crawl.count_site(self.session, p["url"]), 2.5 * 3600)
             elif self.task == "crawl":
                 mode = p.get("mode", "deep")
                 limit = 5 * 3600 if mode == "full" else 3600
