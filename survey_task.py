@@ -141,6 +141,7 @@ class Worker:
                 n_req = summary.get("pages") or 1
             elif self.task == "crawl" and p.get("mode") == "count":
                 summary, files = await asyncio.wait_for(core_crawl.count_site(self.session, p["url"], **pace(p.get("ip"))), 2.5 * 3600)
+                n_req = summary.get("pages") or 1
             elif self.task == "crawl":
                 mode = p.get("mode", "deep")
                 limit = 5 * 3600 if mode == "full" else 3600
