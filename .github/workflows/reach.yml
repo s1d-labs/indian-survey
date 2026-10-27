@@ -1,0 +1,24 @@
+name: reach
+
+# One-off reachability check from a GitHub-hosted runner: a handful of NIC-hosted sites and two controls, one request
+# each, results in the log. Run by hand: Actions -> reach -> Run workflow.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reach:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: |
+          echo "runner egress: $(curl -s -m 10 https://api.ipify.org)"
+          for u in https://agra.nic.in/ https://sirsa.gov.in/ https://ranchi.nic.in/ https://bhopal.nic.in/ \
+                   https://shamli.dcourts.gov.in/ https://jorhat.dcourts.gov.in/ https://damoh.kvs.ac.in/ https://ernakulam.kvs.ac.in/ \
+                   https://up.nic.in/ https://nrega.nic.in/ https://eprocure.gov.in/ https://serviceonline.gov.in/ \
+                   https://www.india.gov.in/ https://example.com/; do
+            curl -s -o /dev/null -m 20 -w "$u %{http_code} %{remote_ip} %{time_total}s\n" \
+              -A "Mozilla/5.0 (compatible; indian-status/1.0; reachability check; https://india.s1d.me)" "$u" || echo "$u failed"
+          done
