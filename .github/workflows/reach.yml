@@ -1,9 +1,15 @@
 name: reach
 
-# One-off reachability check from a GitHub-hosted runner: a handful of NIC-hosted sites and two controls, one request
-# each, results in the log. Run by hand: Actions -> reach -> Run workflow.
+# One-off reachability check from GitHub-hosted runners (Azure): one request per URL, results in the log, from three
+# runners at once (three egress IPs). Run by hand: Actions -> reach -> Run workflow, or
+#   gh workflow run reach.yml -f urls="https://a/ https://b/"
 on:
   workflow_dispatch:
+    inputs:
+      urls:
+        description: space-separated URLs (empty = the NIC sample below)
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -12,13 +18,18 @@ jobs:
   reach:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    strategy:
+      matrix:
+        runner: [1, 2, 3]
     steps:
-      - run: |
+      - env:
+          URLS: ${{ inputs.urls }}
+        run: |
           echo "runner egress: $(curl -s -m 10 https://api.ipify.org)"
-          for u in https://agra.nic.in/ https://sirsa.gov.in/ https://ranchi.nic.in/ https://bhopal.nic.in/ \
+          for u in ${URLS:-https://agra.nic.in/ https://sirsa.gov.in/ https://ranchi.nic.in/ https://bhopal.nic.in/ \
                    https://shamli.dcourts.gov.in/ https://jorhat.dcourts.gov.in/ https://damoh.kvs.ac.in/ https://ernakulam.kvs.ac.in/ \
                    https://up.nic.in/ https://nrega.nic.in/ https://eprocure.gov.in/ https://serviceonline.gov.in/ \
-                   https://www.india.gov.in/ https://example.com/; do
-            curl -s -o /dev/null -m 20 -w "$u %{http_code} %{remote_ip} %{time_total}s\n" \
+                   https://www.india.gov.in/ https://example.com/} https://example.com/; do
+            curl -s -o /dev/null -m 20 -w "$u %{http_code} %{remote_ip} %{time_total}s -> %{redirect_url}\n" \
               -A "Mozilla/5.0 (compatible; indian-status/1.0; reachability check; https://india.s1d.me)" "$u" || echo "$u failed"
           done
