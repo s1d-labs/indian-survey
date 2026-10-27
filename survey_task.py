@@ -154,26 +154,57 @@ class Worker:
     async def run(self):
         await self.start()
         try:
-            while time.time() < DEADLINE:
-                st = self.hub.settings
-                if st.get("paused"):
-                    await asyncio.sleep(30)
-                    continue
-                n = max(1, int(st.get("threads", 4)))
-                items = await asyncio.to_thread(self.hub.claim, n, True, True)
-                if not items:
-                    break
-                res = await asyncio.gather(*(self.one(i) for i in items), return_exceptions=True)
-                if self.task == "render" and (self.pages >= 150 or any(isinstance(r, BaseException) for r in res)):
-                    await self.new_browser()   # between batches only: no page of this process is open now
-                for item, r in zip(items, res):
-                    if isinstance(r, BaseException):
-                        self.hub.error()
-                        self.hub.complete([item["key"]], "failed", error=f"{type(r).__name__}: {str(r)[:150]}")
-                if st.get("delay_ms"):
-                    await asyncio.sleep(st["delay_ms"] / 1000)
+            if self.task == "render":
+                await self.run_batches()
+            else:
+                await self.run_slots()
         finally:
             await self.stop()
+
+    async def guarded(self, item):
+        try:
+            await self.one(item)
+        except BaseException as r:  # noqa: BLE001: one site never stops the worker
+            self.hub.error()
+            self.hub.complete([item["key"]], "failed", error=f"{type(r).__name__}: {str(r)[:150]}")
+
+    async def run_slots(self):
+        """Keep `threads` sites in flight and claim the next one as soon as a slot frees (a batch would wait for its
+        slowest site). `threads` is re-read from the hub every time, so the hub can widen or narrow this process."""
+        running, exhausted = set(), False
+        while (running or not exhausted) and time.time() < DEADLINE:
+            st = self.hub.settings
+            want = 0 if st.get("paused") else max(1, int(st.get("threads", 4)))
+            while not exhausted and len(running) < want:
+                items = await asyncio.to_thread(self.hub.claim, 1, True, True)
+                if not items:
+                    exhausted = True
+                    break
+                running.add(asyncio.create_task(self.guarded(items[0])))
+            if running:
+                _, running = await asyncio.wait(running, timeout=30, return_when=asyncio.FIRST_COMPLETED)
+            elif not exhausted:
+                await asyncio.sleep(30)   # paused
+
+    async def run_batches(self):
+        while time.time() < DEADLINE:
+            st = self.hub.settings
+            if st.get("paused"):
+                await asyncio.sleep(30)
+                continue
+            n = max(1, int(st.get("threads", 4)))
+            items = await asyncio.to_thread(self.hub.claim, n, True, True)
+            if not items:
+                break
+            res = await asyncio.gather(*(self.one(i) for i in items), return_exceptions=True)
+            if self.task == "render" and (self.pages >= 150 or any(isinstance(r, BaseException) for r in res)):
+                await self.new_browser()   # between batches only: no page of this process is open now
+            for item, r in zip(items, res):
+                if isinstance(r, BaseException):
+                    self.hub.error()
+                    self.hub.complete([item["key"]], "failed", error=f"{type(r).__name__}: {str(r)[:150]}")
+            if st.get("delay_ms"):
+                await asyncio.sleep(st["delay_ms"] / 1000)
 
 
 class LocalHub:
