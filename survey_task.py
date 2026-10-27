@@ -51,6 +51,20 @@ def slim(task, s):
 
 
 EGRESS = ""
+# politeness per server: sites that share an IP with many others (68 Mizoram sites on one Google IP, 154 Delhi sites on
+# one Airtel IP) get one request at a time and a gap that grows with the group; others get 3 at a time
+try:
+    _hosts = json.loads((HERE / "hosts.json").read_text())
+    IP_GROUP = __import__("collections").Counter(h.get("ip") for h in _hosts if h.get("ip"))
+except (OSError, ValueError):
+    IP_GROUP = {}
+
+
+def pace(ip):
+    n = IP_GROUP.get(ip, 1) if ip else 1
+    if n <= 3:
+        return {"conc": 3, "gap": 0.3}
+    return {"conc": 1, "gap": min(6.0, 0.5 * n / 4)}
 
 
 class Worker:
@@ -112,11 +126,11 @@ class Worker:
                 summary, files = await asyncio.wait_for(core_scrape.scrape_site(self.session, p["url"], family=p.get("family", "s3waas")), 5 * 3600)
                 n_req = summary.get("pages") or 1
             elif self.task == "crawl" and p.get("mode") == "count":
-                summary, files = await asyncio.wait_for(core_crawl.count_site(self.session, p["url"]), 2.5 * 3600)
+                summary, files = await asyncio.wait_for(core_crawl.count_site(self.session, p["url"], **pace(p.get("ip"))), 2.5 * 3600)
             elif self.task == "crawl":
                 mode = p.get("mode", "deep")
                 limit = 5 * 3600 if mode == "full" else 3600
-                summary, files = await asyncio.wait_for(core_crawl.crawl_site(self.session, p["url"], mode=mode), limit)
+                summary, files = await asyncio.wait_for(core_crawl.crawl_site(self.session, p["url"], mode=mode, **pace(p.get("ip"))), limit)
                 n_req = summary.get("pages") or 1
             else:
                 self.pages += 1
@@ -214,6 +228,20 @@ def main():
             EGRESS = HubClient._egress_ip() or ""
         except Exception:  # noqa: BLE001
             EGRESS = ""
+# politeness per server: sites that share an IP with many others (68 Mizoram sites on one Google IP, 154 Delhi sites on
+# one Airtel IP) get one request at a time and a gap that grows with the group; others get 3 at a time
+try:
+    _hosts = json.loads((HERE / "hosts.json").read_text())
+    IP_GROUP = __import__("collections").Counter(h.get("ip") for h in _hosts if h.get("ip"))
+except (OSError, ValueError):
+    IP_GROUP = {}
+
+
+def pace(ip):
+    n = IP_GROUP.get(ip, 1) if ip else 1
+    if n <= 3:
+        return {"conc": 3, "gap": 0.3}
+    return {"conc": 1, "gap": min(6.0, 0.5 * n / 4)}
     signal.signal(signal.SIGTERM, lambda *a: (_ for _ in ()).throw(KeyboardInterrupt()))
     try:
         asyncio.run(Worker(task, hub).run())

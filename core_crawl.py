@@ -99,7 +99,7 @@ def links(base, html):
     return pages, docs
 
 
-async def crawl_site(session, start_url, mode="deep", max_pages=1500, per_template=3, stop_after=150, gap=0.6, budget_s=3000):
+async def crawl_site(session, start_url, mode="deep", max_pages=1500, per_template=3, stop_after=150, gap=0.6, budget_s=3000, conc=1):
     if mode == "full":
         max_pages, stop_after, budget_s = max(max_pages, 30000), 10 ** 9, max(budget_s, 4 * 3600)
     keep = per_template
@@ -138,27 +138,25 @@ async def crawl_site(session, start_url, mode="deep", max_pages=1500, per_templa
         queued.add(u)
         frontier.append((u, depth, via))
 
-    while frontier and n < max_pages and time.monotonic() - t0 < budget_s:
-        if mode in ("deep", "full") and n - last_new > stop_after:
-            break
-        url, depth, via = frontier.pop(0)
-        if url in visited:
-            continue
-        visited.add(url)
-        if n:
-            await asyncio.sleep(gap)
+    inflight = 0
+
+    async def fetch_one(url, depth, via):
+        nonlocal n, last_new
+        await asyncio.sleep(gap)
         meta, body = await get(session, url, 2_000_000)
+        i = n
+        n += 1
         ctype = dict((k.lower(), v) for k, v in meta["headers"]).get("content-type", "")
         is_html = bool(body) and ("html" in ctype or body[:200].lstrip()[:1] == b"<")
         t = template(meta["final_url"] or url)
-        rec = {"i": n, "url": url, "final": meta["final_url"], "code": meta["code"], "err": meta["err"], "ctype": ctype[:60],
+        rec = {"i": i, "url": url, "final": meta["final_url"], "code": meta["code"], "err": meta["err"], "ctype": ctype[:60],
                "template": template(url), "final_template": t, "depth": depth, "via": via[:80], "len": meta["len"], "ms": meta["ms"]}
         if is_html:
             m = TITLE.search(body)
             rec["title"] = " ".join(m.group(1).decode("utf-8", "replace").split())[:160] if m else ""
             if kept_t[rec["template"]] < keep:
                 kept_t[rec["template"]] += 1
-                files[f"p{n:05d}.html"] = body
+                files[f"p{i:05d}.html"] = body
             base = meta["final_url"] or url
             pages, docs = links(base, body)
             rec["n_links"], rec["n_docs"] = len(pages), len(docs)
@@ -184,8 +182,33 @@ async def crawl_site(session, start_url, mode="deep", max_pages=1500, per_templa
         index.append(rec)
         if rec["template"] not in visited_t:
             visited_t.add(rec["template"])
-            last_new = n
-        n += 1
+            last_new = i
+
+
+    async def worker():
+        nonlocal inflight
+        while n < max_pages and time.monotonic() - t0 < budget_s:
+            if mode in ("deep", "full") and n - last_new > stop_after:
+                return
+            if not frontier:
+                if inflight == 0:
+                    return
+                await asyncio.sleep(0.05)
+                continue
+            url, depth, via = frontier.pop(0)
+            if url in visited:
+                continue
+            visited.add(url)
+            inflight += 1
+            try:
+                await fetch_one(url, depth, via)
+            finally:
+                inflight -= 1
+
+    # `conc` requests at a time to this site (1 = strictly sequential); the first page alone, so the frontier fills first
+    await fetch_one(*frontier.pop(0)) if frontier else None
+    visited.add(start_url)
+    await asyncio.gather(*(worker() for _ in range(max(1, conc))))
 
     templates = Counter(r["template"] for r in index)
     summary = {"url": start_url, "mode": mode, "pages": n, "templates": len(templates), "frontier_left": len(frontier),
@@ -233,13 +256,13 @@ def listing_stats(url, html, host):
     return {"rows": items, "last_page": min(last, 20000), "detail_links": detail, "docs": docs}
 
 
-async def count_site(session, start_url, gap=0.5, budget_s=2 * 3600):
+async def count_site(session, start_url, gap=0.5, budget_s=2 * 3600, conc=1):
     """Page census of one site: a discovery crawl (2 pages per template, so archives and every free-form page are
     reached), then for each paginated listing its last page: items = rows per page x pages. Reports linked pages,
     extra listing pages, listed items, detail pages (items whose rows link to their own page) and language mirrors."""
     t0 = time.monotonic()
     host = urlsplit(start_url).hostname
-    summary, files = await crawl_site(session, start_url, mode="deep", per_template=2, stop_after=200, gap=gap, budget_s=budget_s)
+    summary, files = await crawl_site(session, start_url, mode="deep", per_template=2, stop_after=200, gap=gap, budget_s=budget_s, conc=conc)
     idx = json.loads(files["index.json"])
     pages, seen_lists = [], set()
     for r in idx:
