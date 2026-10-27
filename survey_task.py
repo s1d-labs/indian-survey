@@ -22,6 +22,7 @@ import time
 from collections import defaultdict
 from pathlib import Path
 
+import core_crawl
 import core_fetch
 import core_render
 
@@ -42,7 +43,8 @@ def bundle(summary, files):
 
 def slim(task, s):
     """The record kept on the hub: enough to see progress and outcomes without the bundle."""
-    keep = ("code", "err", "final_url", "len", "ms", "redirects", "title", "load_ms", "n_requests", "total_ms", "main_url")
+    keep = ("code", "err", "final_url", "len", "ms", "redirects", "title", "load_ms", "n_requests", "total_ms", "main_url",
+            "mode", "pages", "templates", "stopped", "docs", "seconds")
     return {"task": task, "egress": EGRESS, **{k: s.get(k) for k in keep if k in s}}
 
 
@@ -60,7 +62,7 @@ class Worker:
         self.ua = None
 
     async def start(self):
-        if self.task == "fetch":
+        if self.task in ("fetch", "crawl"):
             self.session = core_fetch.make_session()
         else:
             from playwright.async_api import async_playwright
@@ -77,7 +79,7 @@ class Worker:
         self.pages = 0
 
     async def stop(self):
-        if self.task == "fetch":
+        if self.task in ("fetch", "crawl"):
             await self.session.close()
         else:
             await self.browser.close()
@@ -104,6 +106,11 @@ class Worker:
             if self.task == "fetch":
                 summary, files = await asyncio.wait_for(core_fetch.fetch_host(self.session, p["url"]), 300)
                 n_req = len(summary.get("reqs") or {}) or 1
+            elif self.task == "crawl":
+                mode = p.get("mode", "deep")
+                limit = 5 * 3600 if mode == "full" else 3600
+                summary, files = await asyncio.wait_for(core_crawl.crawl_site(self.session, p["url"], mode=mode), limit)
+                n_req = summary.get("pages") or 1
             else:
                 self.pages += 1
                 try:
@@ -118,7 +125,8 @@ class Worker:
         summary["egress"] = EGRESS
         summary["domain"] = p["domain"]
         blob = bundle(summary, files)
-        await asyncio.to_thread(self.hub.upload_many, [(f"{p['domain']}.tgz", blob, "application/gzip")])
+        name = f"{p['mode']}/{p['domain']}.tgz" if self.task == "crawl" else f"{p['domain']}.tgz"
+        await asyncio.to_thread(self.hub.upload_many, [(name, blob, "application/gzip")])
         self.hub.record(p["domain"], slim(self.task, summary))
         self.hub.complete([item["key"]], "done", fetched=1)
 
@@ -153,7 +161,8 @@ class LocalHub:
 
     def __init__(self, url):
         from urllib.parse import urlsplit
-        self.items = [{"key": "local", "payload": {"domain": urlsplit(url).hostname, "url": url}}]
+        mode = sys.argv[sys.argv.index("--mode") + 1] if "--mode" in sys.argv else "deep"
+        self.items = [{"key": "local", "payload": {"domain": urlsplit(url).hostname, "url": url, "mode": mode}}]
 
     def claim(self, *a):
         out, self.items = self.items, []
@@ -170,12 +179,14 @@ class LocalHub:
 
     def upload_many(self, files):
         for path, data, _ in files:
-            Path(".scrape-check").mkdir(exist_ok=True)
-            (Path(".scrape-check") / path).write_bytes(data)
+            out = Path(".scrape-check") / path
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_bytes(data)
             print("saved", path, len(data), "bytes", file=sys.stderr)
 
-    def complete(self, *a, **k):
-        pass
+    def complete(self, keys, status="done", error="", fetched=None):
+        if status != "done":
+            print("failed:", error, file=sys.stderr)
 
     def close(self, *a):
         pass
@@ -184,8 +195,8 @@ class LocalHub:
 def main():
     global EGRESS
     task = sys.argv[1] if len(sys.argv) > 1 else ""
-    if task not in ("fetch", "render"):
-        sys.exit("usage: survey_task.py fetch|render [--local URL]")
+    if task not in ("fetch", "render", "crawl"):
+        sys.exit("usage: survey_task.py fetch|render|crawl [--local URL]")
     if "--local" in sys.argv:
         hub = LocalHub(sys.argv[sys.argv.index("--local") + 1])
     else:

@@ -6,7 +6,20 @@
     "python -m playwright install --with-deps chromium"
   ],
   "tasks": {
-    "fetch": ["python", "survey_task.py", "fetch"],
-    "render": ["python", "survey_task.py", "render"]
+    "fetch": [
+      "python",
+      "survey_task.py",
+      "fetch"
+    ],
+    "render": [
+      "python",
+      "survey_task.py",
+      "render"
+    ],
+    "crawl": [
+      "python",
+      "survey_task.py",
+      "crawl"
+    ]
   }
 }
