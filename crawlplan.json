@@ -1454,6 +1454,2541 @@
 "url": "https://ranchi.nic.in",
 "family": "s3waas",
 "why": "reference"
+},
+"ssckkr.kar.nic.in": {
+"url": "https://ssckkr.kar.nic.in",
+"family": "custom-other",
+"why": "10% sample: Karnataka / Commission"
+},
+"mssidc.maharashtra.gov.in": {
+"url": "https://mssidc.maharashtra.gov.in",
+"family": "custom-other",
+"why": "10% sample: Maharashtra / State portal / key site"
+},
+"mitr.chemicals.gov.in": {
+"url": "https://mitr.chemicals.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Institution"
+},
+"kvklowersubansiri.nic.in": {
+"url": "https://kvklowersubansiri.nic.in",
+"family": "custom-other",
+"why": "10% sample: Arunachal Pradesh / State institution"
+},
+"dpar.py.gov.in": {
+"url": "https://dpar.py.gov.in",
+"family": "custom-other",
+"why": "10% sample: Puducherry / State department"
+},
+"nipermis.pharma-dept.gov.in": {
+"url": "https://nipermis.pharma-dept.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Institution"
+},
+"www.jharkhand.gov.in": {
+"url": "https://www.jharkhand.gov.in/health",
+"family": "custom-other",
+"why": "10% sample: Jharkhand / State portal / key site"
+},
+"merimaatimeradesh.gov.in": {
+"url": "https://merimaatimeradesh.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Other central body"
+},
+"megsports.gov.in": {
+"url": "https://megsports.gov.in",
+"family": "custom-other",
+"why": "10% sample: Meghalaya / State department"
+},
+"apps.commerce.gov.in": {
+"url": "https://apps.commerce.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"www.sac.gov.in": {
+"url": "https://www.sac.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Attached office"
+},
+"www.nepamills.co.in": {
+"url": "https://www.nepamills.co.in",
+"family": "custom-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"svp.eci.gov.in": {
+"url": "https://svp.eci.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Listed government site"
+},
+"www.pdcor.com": {
+"url": "https://www.pdcor.com",
+"family": "custom-other",
+"why": "10% sample: Rajasthan / State board / undertaking"
+},
+"psara.gov.in": {
+"url": "https://psara.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"www.kolkatacustoms.gov.in": {
+"url": "https://www.kolkatacustoms.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Regional office"
+},
+"gac.gov.in": {
+"url": "https://gac.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Commission"
+},
+"bharatskills.gov.in": {
+"url": "https://bharatskills.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Attached office"
+},
+"www.rcfltd.com": {
+"url": "https://www.rcfltd.com",
+"family": "custom-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"www.iith.ac.in": {
+"url": "https://www.iith.ac.in",
+"family": "custom-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"swayam.gov.in": {
+"url": "https://swayam.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Statutory body"
+},
+"niperraebareli.edu.in": {
+"url": "https://niperraebareli.edu.in",
+"family": "custom-other",
+"why": "10% sample: Union / Institution"
+},
+"cercind.gov.in": {
+"url": "https://cercind.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Commission"
+},
+"www.tifr.res.in": {
+"url": "https://www.tifr.res.in",
+"family": "custom-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"npsc.nagaland.gov.in": {
+"url": "https://npsc.nagaland.gov.in",
+"family": "custom-other",
+"why": "10% sample: Nagaland / Apex body (state)"
+},
+"ravenshawuniversity.ac.in": {
+"url": "https://ravenshawuniversity.ac.in",
+"family": "custom-other",
+"why": "10% sample: Odisha / State institution"
+},
+"brbn.bihar.gov.in": {
+"url": "https://brbn.bihar.gov.in",
+"family": "custom-other",
+"why": "10% sample: Bihar / State board / undertaking"
+},
+"www.ecb.ac.in": {
+"url": "https://www.ecb.ac.in",
+"family": "custom-other",
+"why": "10% sample: Rajasthan / State portal / key site"
+},
+"odcl.nic.in": {
+"url": "https://odcl.nic.in",
+"family": "custom-other",
+"why": "10% sample: Odisha / State PSU / company"
+},
+"barnala.punjabpolice.gov.in": {
+"url": "https://barnala.punjabpolice.gov.in",
+"family": "custom-other",
+"why": "10% sample: Punjab / State portal / key site"
+},
+"annamalaiuniversity.ac.in": {
+"url": "https://annamalaiuniversity.ac.in",
+"family": "custom-other",
+"why": "10% sample: Tamil Nadu / State institution"
+},
+"www.nja.gov.in": {
+"url": "https://www.nja.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"tmc.kerala.gov.in": {
+"url": "https://tmc.kerala.gov.in",
+"family": "custom-other",
+"why": "10% sample: Kerala / State institution"
+},
+"incometaxgujarat.gov.in": {
+"url": "https://incometaxgujarat.gov.in",
+"family": "custom-other",
+"why": "10% sample: Gujarat / State department"
+},
+"www.rsmm.com": {
+"url": "https://www.rsmm.com",
+"family": "custom-other",
+"why": "10% sample: Rajasthan / State board / undertaking"
+},
+"www.gacrkl.ac.in": {
+"url": "https://www.gacrkl.ac.in",
+"family": "custom-other",
+"why": "10% sample: Odisha / State institution"
+},
+"megeducation.gov.in": {
+"url": "https://megeducation.gov.in",
+"family": "custom-other",
+"why": "10% sample: Meghalaya / State department"
+},
+"ebudgetmanipur.mn.gov.in": {
+"url": "https://ebudgetmanipur.mn.gov.in",
+"family": "custom-other",
+"why": "10% sample: Manipur / Other state body"
+},
+"www.arunachalpwd.org": {
+"url": "https://www.arunachalpwd.org",
+"family": "custom-other",
+"why": "10% sample: Arunachal Pradesh / State department"
+},
+"digitalsky.dgca.gov.in": {
+"url": "https://digitalsky.dgca.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"www.ikm.gov.in": {
+"url": "https://www.ikm.gov.in",
+"family": "custom-other",
+"why": "10% sample: Kerala / State scheme / application"
+},
+"arunachalgovernor.gov.in": {
+"url": "https://arunachalgovernor.gov.in",
+"family": "custom-other",
+"why": "10% sample: Arunachal Pradesh / Apex body (state)"
+},
+"ecounselling.utl.gov.in": {
+"url": "https://ecounselling.utl.gov.in",
+"family": "custom-other",
+"why": "10% sample: Lakshadweep / State portal / key site"
+},
+"hpsamb.org": {
+"url": "https://hpsamb.org",
+"family": "custom-other",
+"why": "10% sample: Himachal Pradesh / State board / undertaking"
+},
+"www.iimj.ac.in": {
+"url": "https://www.iimj.ac.in",
+"family": "custom-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"megrevenuedm.gov.in": {
+"url": "https://megrevenuedm.gov.in",
+"family": "custom-other",
+"why": "10% sample: Meghalaya / State department"
+},
+"www.gpbindki.in": {
+"url": "https://www.gpbindki.in",
+"family": "custom-other",
+"why": "10% sample: Uttar Pradesh / State institution"
+},
+"ccobz.gov.in": {
+"url": "https://ccobz.gov.in/posting.html",
+"family": "custom-other",
+"why": "10% sample: Union / Commission"
+},
+"nth.gov.in": {
+"url": "https://nth.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Attached office"
+},
+"hkrnl.itiharyana.gov.in": {
+"url": "https://hkrnl.itiharyana.gov.in",
+"family": "custom-other",
+"why": "10% sample: Haryana / Other state body"
+},
+"www.icmr.gov.in": {
+"url": "https://www.icmr.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"www.idbibank.in": {
+"url": "https://www.idbibank.in",
+"family": "custom-other",
+"why": "10% sample: Union / Statutory body"
+},
+"www.amritsarcorp.com": {
+"url": "https://www.amritsarcorp.com",
+"family": "custom-other",
+"why": "10% sample: Punjab / Legislative body"
+},
+"www.gsuda.org": {
+"url": "https://www.gsuda.org",
+"family": "custom-other",
+"why": "10% sample: Goa / State board / undertaking"
+},
+"www.rrcnes.in": {
+"url": "https://www.rrcnes.in",
+"family": "custom-other",
+"why": "10% sample: Union / Regional office"
+},
+"vidhanparishad.bihar.gov.in": {
+"url": "https://vidhanparishad.bihar.gov.in",
+"family": "custom-other",
+"why": "10% sample: Bihar / State legislature"
+},
+"www.iffigoa.org": {
+"url": "https://www.iffigoa.org",
+"family": "custom-other",
+"why": "10% sample: Union / Other central body"
+},
+"www.kribhco.net": {
+"url": "https://www.kribhco.net",
+"family": "custom-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"fact.co.in": {
+"url": "https://fact.co.in",
+"family": "custom-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"aeoindia.gov.in": {
+"url": "https://aeoindia.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"mczma.gov.in": {
+"url": "https://mczma.gov.in",
+"family": "custom-other",
+"why": "10% sample: Maharashtra / State board / undertaking"
+},
+"www.scd.tn.gov.in": {
+"url": "https://www.scd.tn.gov.in",
+"family": "custom-other",
+"why": "10% sample: Tamil Nadu / State portal / key site"
+},
+"nppa.gov.in": {
+"url": "https://nppa.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Attached office"
+},
+"emps.heavyindustries.gov.in": {
+"url": "https://emps.heavyindustries.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"www.keiip.in": {
+"url": "https://www.keiip.in",
+"family": "custom-other",
+"why": "10% sample: West Bengal / Other state body"
+},
+"imdpune.gov.in": {
+"url": "https://imdpune.gov.in",
+"family": "custom-other",
+"why": "10% sample: Union / Regional office"
+},
+"webcast.gov.in": {
+"url": "https://webcast.gov.in/lstvlive",
+"family": "custom-other",
+"why": "10% sample: Union / Attached office"
+},
+"rggwch.py.gov.in": {
+"url": "https://rggwch.py.gov.in",
+"family": "drupal-other",
+"why": "10% sample: Puducherry / State portal / key site"
+},
+"odishafshgscd.gov.in": {
+"url": "https://odishafshgscd.gov.in",
+"family": "drupal-other",
+"why": "10% sample: Odisha / State directorate"
+},
+"www.icar.org.in": {
+"url": "https://www.icar.org.in",
+"family": "drupal-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"www.iitk.ac.in": {
+"url": "https://www.iitk.ac.in",
+"family": "drupal-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"dla.gov.in": {
+"url": "https://dla.gov.in",
+"family": "drupal-other",
+"why": "10% sample: Union / Other central body"
+},
+"www.csmcri.res.in": {
+"url": "https://www.csmcri.res.in",
+"family": "drupal-other",
+"why": "10% sample: Gujarat / Autonomous body"
+},
+"tmc.lsgkerala.gov.in": {
+"url": "https://tmc.lsgkerala.gov.in",
+"family": "drupal-other",
+"why": "10% sample: Kerala / Legislative body"
+},
+"gidagkp.in": {
+"url": "https://gidagkp.in",
+"family": "drupal-other",
+"why": "10% sample: Uttar Pradesh / State portal / key site"
+},
+"pmndp.mohfw.gov.in": {
+"url": "https://pmndp.mohfw.gov.in/en",
+"family": "drupal-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"www.vecc.gov.in": {
+"url": "https://www.vecc.gov.in",
+"family": "drupal-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"www.jammuuniversity.ac.in": {
+"url": "https://www.jammuuniversity.ac.in",
+"family": "drupal-other",
+"why": "10% sample: Jammu and Kashmir / State institution"
+},
+"npstrust.org.in": {
+"url": "https://npstrust.org.in",
+"family": "drupal-other",
+"why": "10% sample: Union / Statutory body"
+},
+"www.mospi.gov.in": {
+"url": "https://www.mospi.gov.in",
+"family": "react-other",
+"why": "10% sample: Union / Union ministry"
+},
+"iiitn.ac.in": {
+"url": "https://iiitn.ac.in",
+"family": "react-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"vidyanjali.education.gov.in": {
+"url": "https://vidyanjali.education.gov.in",
+"family": "react-other",
+"why": "10% sample: Union / School"
+},
+"www.csrtiber.res.in": {
+"url": "https://www.csrtiber.res.in",
+"family": "react-other",
+"why": "10% sample: Union / Statutory body"
+},
+"iiitu.ac.in": {
+"url": "https://iiitu.ac.in",
+"family": "react-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"nsd.gov.in": {
+"url": "https://nsd.gov.in",
+"family": "static-other",
+"why": "10% sample: Union / School"
+},
+"www.msits.gov.in": {
+"url": "https://www.msits.gov.in",
+"family": "static-other",
+"why": "10% sample: Manipur / Other state body"
+},
+"www.fcikerala.org": {
+"url": "https://www.fcikerala.org",
+"family": "static-other",
+"why": "10% sample: Kerala / Institution"
+},
+"www.dlpi.mn.gov.in": {
+"url": "https://www.dlpi.mn.gov.in",
+"family": "static-other",
+"why": "10% sample: Manipur / State department"
+},
+"elegalmetrology.jharkhand.gov.in": {
+"url": "https://elegalmetrology.jharkhand.gov.in",
+"family": "asp.net-other",
+"why": "10% sample: Jharkhand / State portal / key site"
+},
+"dfpd.gov.in": {
+"url": "https://dfpd.gov.in",
+"family": "asp.net-other",
+"why": "10% sample: Union / Union department"
+},
+"apnakhata.rajasthan.gov.in": {
+"url": "https://apnakhata.rajasthan.gov.in",
+"family": "asp.net-other",
+"why": "10% sample: Rajasthan / State board / undertaking"
+},
+"mahaotandptcouncil.in": {
+"url": "https://mahaotandptcouncil.in",
+"family": "asp.net-other",
+"why": "10% sample: Maharashtra / State institution"
+},
+"khanijonline.cgstate.gov.in": {
+"url": "https://khanijonline.cgstate.gov.in",
+"family": "asp.net-other",
+"why": "10% sample: Chhattisgarh / State department"
+},
+"www.csauk.ac.in": {
+"url": "https://www.csauk.ac.in",
+"family": "asp.net-other",
+"why": "10% sample: Uttar Pradesh / State portal / key site"
+},
+"almoraurban.bank.in": {
+"url": "https://almoraurban.bank.in",
+"family": "asp.net-other",
+"why": "10% sample: Uttarakhand / State portal / key site"
+},
+"saurashtrauniversity.edu": {
+"url": "https://saurashtrauniversity.edu",
+"family": "asp.net-other",
+"why": "10% sample: Gujarat / State institution"
+},
+"jjm.up.gov.in": {
+"url": "https://jjm.up.gov.in",
+"family": "asp.net-other",
+"why": "10% sample: Uttar Pradesh / State scheme / application"
+},
+"www.kship.in": {
+"url": "https://www.kship.in",
+"family": "asp.net-other",
+"why": "10% sample: Karnataka / Other state body"
+},
+"nbccindia.in": {
+"url": "https://nbccindia.in",
+"family": "asp.net-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"www.gbu.ac.in": {
+"url": "https://www.gbu.ac.in",
+"family": "asp.net-other",
+"why": "10% sample: Uttar Pradesh / State institution"
+},
+"mdu.ac.in": {
+"url": "https://mdu.ac.in",
+"family": "asp.net-other",
+"why": "10% sample: Haryana / State institution"
+},
+"ipass.telangana.gov.in": {
+"url": "https://ipass.telangana.gov.in",
+"family": "asp.net-other",
+"why": "10% sample: Telangana / State scheme / application"
+},
+"www.pawanhans.co.in": {
+"url": "https://www.pawanhans.co.in",
+"family": "asp.net-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"borpdra.bihar.gov.in": {
+"url": "https://borpdra.bihar.gov.in",
+"family": "asp.net-other",
+"why": "10% sample: Bihar / State board / undertaking"
+},
+"up-rera.in": {
+"url": "https://up-rera.in/index",
+"family": "asp.net-other",
+"why": "10% sample: Uttar Pradesh / State portal / key site"
+},
+"indiapostgdsonline.gov.in": {
+"url": "https://indiapostgdsonline.gov.in",
+"family": "asp.net-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"www.medicalcollegebaroda.edu.in": {
+"url": "https://www.medicalcollegebaroda.edu.in",
+"family": "asp.net-other",
+"why": "10% sample: Gujarat / State institution"
+},
+"www.ntcltd.org": {
+"url": "https://www.ntcltd.org",
+"family": "asp.net-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"hpecotourism.com": {
+"url": "https://hpecotourism.com",
+"family": "asp.net-other",
+"why": "10% sample: Himachal Pradesh / Other state body"
+},
+"www.gipl.in": {
+"url": "https://www.gipl.in",
+"family": "asp.net-other",
+"why": "10% sample: Gujarat / State board / undertaking"
+},
+"www.ayurveduniversity.edu.in": {
+"url": "https://www.ayurveduniversity.edu.in",
+"family": "asp.net-other",
+"why": "10% sample: Gujarat / Institution"
+},
+"mptax.mp.gov.in": {
+"url": "https://mptax.mp.gov.in",
+"family": "java-other",
+"why": "10% sample: Madhya Pradesh / State department"
+},
+"dst.gov.in": {
+"url": "https://dst.gov.in",
+"family": "next.js-other",
+"why": "10% sample: Union / Union department"
+},
+"grants.tribal.gov.in": {
+"url": "https://grants.tribal.gov.in",
+"family": "angular-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"www.nrmindia.org": {
+"url": "https://www.nrmindia.org",
+"family": "angular-other",
+"why": "10% sample: Delhi / Other central body"
+},
+"nfdp.dof.gov.in": {
+"url": "https://nfdp.dof.gov.in",
+"family": "angular-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"epanjiyan.rajasthan.gov.in": {
+"url": "https://epanjiyan.rajasthan.gov.in",
+"family": "angular-other",
+"why": "10% sample: Rajasthan / Other state body"
+},
+"tgce.and.nic.in": {
+"url": "https://tgce.and.nic.in",
+"family": "ux4g",
+"why": "10% sample: Andaman and Nicobar Islands / State institution"
+},
+"www.ux4g.gov.in": {
+"url": "https://www.ux4g.gov.in",
+"family": "ux4g",
+"why": "10% sample: Union / Institution"
+},
+"fdamp.mponline.gov.in": {
+"url": "https://fdamp.mponline.gov.in/portal/home.aspx",
+"family": "ux4g",
+"why": "10% sample: Madhya Pradesh / State scheme / application"
+},
+"megipr.gov.in": {
+"url": "https://megipr.gov.in",
+"family": "ux4g",
+"why": "10% sample: Meghalaya / State department"
+},
+"forest.and.nic.in": {
+"url": "https://forest.and.nic.in",
+"family": "ux4g",
+"why": "10% sample: Andaman and Nicobar Islands / State department"
+},
+"ntcp.mohfw.gov.in": {
+"url": "https://ntcp.mohfw.gov.in",
+"family": "ux4g",
+"why": "10% sample: Union / National scheme / application"
+},
+"cdri.res.in": {
+"url": "https://cdri.res.in",
+"family": "ux4g",
+"why": "10% sample: Union / Autonomous body"
+},
+"pmgsytendersman.gov.in": {
+"url": "https://pmgsytendersman.gov.in",
+"family": "gepnic",
+"why": "10% sample: Manipur / State scheme / application"
+},
+"arunachaltenders.gov.in": {
+"url": "https://arunachaltenders.gov.in",
+"family": "gepnic",
+"why": "10% sample: Arunachal Pradesh / Other state body"
+},
+"forumofregulators.gov.in": {
+"url": "https://forumofregulators.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / Commission"
+},
+"tantea.nic.in": {
+"url": "https://tantea.nic.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Tamil Nadu / State board / undertaking"
+},
+"reg.goa.gov.in": {
+"url": "https://reg.goa.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Goa / Other state body"
+},
+"nia.nic.in": {
+"url": "https://nia.nic.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / Institution"
+},
+"heliservice.manipurtransport.gov.in": {
+"url": "https://heliservice.manipurtransport.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Manipur / State portal / key site"
+},
+"jsjb.mowr.gov.in": {
+"url": "https://jsjb.mowr.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / National scheme / application"
+},
+"bsea.bihar.gov.in": {
+"url": "https://bsea.bihar.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Bihar / State statutory body"
+},
+"jkgad.nic.in": {
+"url": "https://jkgad.nic.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Jammu and Kashmir / State department"
+},
+"eapdea.gov.in": {
+"url": "https://eapdea.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / Other central body"
+},
+"tritribal.gov.in": {
+"url": "https://tritribal.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / National scheme / application"
+},
+"helisewa.civilaviation.gov.in": {
+"url": "https://helisewa.civilaviation.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / National scheme / application"
+},
+"iel.meghalaya.gov.in": {
+"url": "https://iel.meghalaya.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Meghalaya / Other state body"
+},
+"elabharthi.bihar.gov.in": {
+"url": "https://elabharthi.bihar.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Bihar / State scheme / application"
+},
+"www.nbtindia.gov.in": {
+"url": "https://www.nbtindia.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / Autonomous body"
+},
+"pai.gov.in": {
+"url": "https://pai.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / National scheme / application"
+},
+"aqcsindia.gov.in": {
+"url": "https://aqcsindia.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / Other central body"
+},
+"swit.ifsca.gov.in": {
+"url": "https://swit.ifsca.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Union / Statutory body"
+},
+"brds.bihar.gov.in": {
+"url": "https://brds.bihar.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Bihar / Other state body"
+},
+"www.pmc.bihar.gov.in": {
+"url": "https://www.pmc.bihar.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Bihar / Legislative body"
+},
+"dslr.goa.gov.in": {
+"url": "https://dslr.goa.gov.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Goa / State department"
+},
+"iph.hp.nic.in": {
+"url": "https://iph.hp.nic.in",
+"family": "nic-hosted-aspnet",
+"why": "10% sample: Himachal Pradesh / State department"
+},
+"www.umed.in": {
+"url": "https://www.umed.in",
+"family": "nic-gigw-template",
+"why": "10% sample: Maharashtra / State scheme / application"
+},
+"nihroorkee.gov.in": {
+"url": "https://nihroorkee.gov.in",
+"family": "nic-gigw-template",
+"why": "10% sample: Union / Autonomous body"
+},
+"pvvnl.org": {
+"url": "https://pvvnl.org",
+"family": "nic-gigw-template",
+"why": "10% sample: Uttar Pradesh / State board / undertaking"
+},
+"www.bsip.res.in": {
+"url": "https://www.bsip.res.in",
+"family": "nic-gigw-template",
+"why": "10% sample: Union / Autonomous body"
+},
+"pbsc.nic.in": {
+"url": "https://pbsc.nic.in",
+"family": "s3waas",
+"why": "10% sample: Punjab / Attached office"
+},
+"bhiwani.gov.in": {
+"url": "https://bhiwani.gov.in",
+"family": "s3waas",
+"why": "10% sample: Haryana / State portal / key site"
+},
+"itiassam.admissions.nic.in": {
+"url": "https://itiassam.admissions.nic.in",
+"family": "s3waas",
+"why": "10% sample: Assam / State portal / key site"
+},
+"ananthapuramu.ap.gov.in": {
+"url": "https://ananthapuramu.ap.gov.in",
+"family": "s3waas",
+"why": "10% sample: Andhra Pradesh / State portal / key site"
+},
+"guntur.ap.gov.in": {
+"url": "https://guntur.ap.gov.in",
+"family": "s3waas",
+"why": "10% sample: Andhra Pradesh / District administration"
+},
+"kosidivision.bih.nic.in": {
+"url": "https://kosidivision.bih.nic.in",
+"family": "s3waas",
+"why": "10% sample: Bihar / Other state body"
+},
+"ramban.gov.in": {
+"url": "https://ramban.gov.in",
+"family": "s3waas",
+"why": "10% sample: Jammu and Kashmir / District administration"
+},
+"8cpc.gov.in": {
+"url": "https://8cpc.gov.in",
+"family": "s3waas",
+"why": "10% sample: Union / Commission"
+},
+"arunachal.nic.in": {
+"url": "https://arunachal.nic.in",
+"family": "s3waas",
+"why": "10% sample: Arunachal Pradesh / Attached office"
+},
+"rcmysore.gov.in": {
+"url": "https://rcmysore.gov.in",
+"family": "s3waas",
+"why": "10% sample: Karnataka / Other state body"
+},
+"cgdte.admissions.nic.in": {
+"url": "https://cgdte.admissions.nic.in",
+"family": "s3waas",
+"why": "10% sample: Chhattisgarh / State directorate"
+},
+"nicchandigarh.nic.in": {
+"url": "https://nicchandigarh.nic.in",
+"family": "s3waas",
+"why": "10% sample: Chandigarh / Attached office"
+},
+"secharyana.gov.in": {
+"url": "https://secharyana.gov.in",
+"family": "s3waas",
+"why": "10% sample: Haryana / Apex body (state)"
+},
+"cm.uk.gov.in": {
+"url": "https://cm.uk.gov.in",
+"family": "s3waas",
+"why": "10% sample: Uttarakhand / Apex body (state)"
+},
+"karnataka.nic.in": {
+"url": "https://karnataka.nic.in",
+"family": "s3waas",
+"why": "10% sample: Karnataka / Attached office"
+},
+"crcgangtok.nic.in": {
+"url": "https://crcgangtok.nic.in",
+"family": "s3waas",
+"why": "10% sample: Sikkim / Statutory body"
+},
+"itanagar.nic.in": {
+"url": "https://itanagar.nic.in",
+"family": "s3waas",
+"why": "10% sample: Arunachal Pradesh / Other state body"
+},
+"aurangabad.bih.nic.in": {
+"url": "https://aurangabad.bih.nic.in",
+"family": "s3waas",
+"why": "10% sample: Bihar / State portal / key site"
+},
+"ariyalur.nic.in": {
+"url": "https://ariyalur.nic.in",
+"family": "s3waas",
+"why": "10% sample: Tamil Nadu / State portal / key site"
+},
+"tamilnadu.nalsa.gov.in": {
+"url": "https://tamilnadu.nalsa.gov.in",
+"family": "s3waas",
+"why": "10% sample: Tamil Nadu / Judicial body"
+},
+"nndehradun.uk.gov.in": {
+"url": "https://nndehradun.uk.gov.in",
+"family": "s3waas",
+"why": "10% sample: Uttarakhand / Legislative body"
+},
+"nichimachal.nic.in": {
+"url": "https://nichimachal.nic.in",
+"family": "s3waas",
+"why": "10% sample: Himachal Pradesh / Attached office"
+},
+"jacchd.admissions.nic.in": {
+"url": "https://jacchd.admissions.nic.in",
+"family": "s3waas",
+"why": "10% sample: Chandigarh / State institution"
+},
+"utl.nic.in": {
+"url": "https://utl.nic.in",
+"family": "s3waas",
+"why": "10% sample: Lakshadweep / Attached office"
+},
+"pherzawl.nic.in": {
+"url": "https://pherzawl.nic.in",
+"family": "s3waas",
+"why": "10% sample: Manipur / District administration"
+},
+"secforuts.mha.gov.in": {
+"url": "https://secforuts.mha.gov.in",
+"family": "s3waas",
+"why": "10% sample: Union / Listed government site"
+},
+"uerc.gov.in": {
+"url": "https://uerc.gov.in",
+"family": "s3waas",
+"why": "10% sample: Uttarakhand / State portal / key site"
+},
+"puducherry-dt.gov.in": {
+"url": "https://puducherry-dt.gov.in",
+"family": "s3waas",
+"why": "10% sample: Puducherry / State portal / key site"
+},
+"legalservices.maharashtra.gov.in": {
+"url": "https://legalservices.maharashtra.gov.in",
+"family": "s3waas",
+"why": "10% sample: Maharashtra / Judicial body"
+},
+"tnrajbhavan.gov.in": {
+"url": "https://tnrajbhavan.gov.in",
+"family": "s3waas",
+"why": "10% sample: Tamil Nadu / Apex body (state)"
+},
+"rochandigarh.kvs.gov.in": {
+"url": "https://rochandigarh.kvs.gov.in",
+"family": "s3waas",
+"why": "10% sample: Chandigarh / School"
+},
+"maharashtra.nic.in": {
+"url": "https://maharashtra.nic.in",
+"family": "s3waas",
+"why": "10% sample: Maharashtra / Attached office"
+},
+"manipur.nic.in": {
+"url": "https://manipur.nic.in",
+"family": "s3waas",
+"why": "10% sample: Manipur / Attached office"
+},
+"nandurbar.gov.in": {
+"url": "https://nandurbar.gov.in",
+"family": "s3waas",
+"why": "10% sample: Maharashtra / District administration"
+},
+"kargil.nic.in": {
+"url": "https://kargil.nic.in",
+"family": "s3waas",
+"why": "10% sample: Ladakh / State portal / key site"
+},
+"roraipur.kvs.gov.in": {
+"url": "https://roraipur.kvs.gov.in",
+"family": "s3waas",
+"why": "10% sample: Chhattisgarh / School"
+},
+"bagpat.nic.in": {
+"url": "https://bagpat.nic.in",
+"family": "s3waas",
+"why": "10% sample: Uttar Pradesh / District administration"
+},
+"washim.gov.in": {
+"url": "https://washim.gov.in",
+"family": "s3waas",
+"why": "10% sample: Maharashtra / District administration"
+},
+"niepmd.nic.in": {
+"url": "https://niepmd.nic.in",
+"family": "s3waas",
+"why": "10% sample: Union / Statutory body"
+},
+"mangan.nic.in": {
+"url": "https://mangan.nic.in",
+"family": "s3waas",
+"why": "10% sample: Sikkim / State portal / key site"
+},
+"ddm.andamannicobar.gov.in": {
+"url": "https://ddm.andamannicobar.gov.in",
+"family": "s3waas",
+"why": "10% sample: Andaman and Nicobar Islands / State department"
+},
+"nicharyana.nic.in": {
+"url": "https://nicharyana.nic.in",
+"family": "s3waas",
+"why": "10% sample: Haryana / Attached office"
+},
+"rojaipur.kvs.gov.in": {
+"url": "https://rojaipur.kvs.gov.in",
+"family": "s3waas",
+"why": "10% sample: Rajasthan / School"
+},
+"seoni.nic.in": {
+"url": "https://seoni.nic.in",
+"family": "s3waas",
+"why": "10% sample: Madhya Pradesh / District administration"
+},
+"rojammu.kvs.gov.in": {
+"url": "https://rojammu.kvs.gov.in",
+"family": "s3waas",
+"why": "10% sample: Jammu and Kashmir / School"
+},
+"sbb.haryanaforest.gov.in": {
+"url": "https://sbb.haryanaforest.gov.in",
+"family": "s3waas",
+"why": "10% sample: Haryana / State board / undertaking"
+},
+"lakshadweep.gov.in": {
+"url": "https://lakshadweep.gov.in/district-panchayath",
+"family": "s3waas",
+"why": "10% sample: Lakshadweep / Apex body (state)"
+},
+"rodelhi.kvs.gov.in": {
+"url": "https://rodelhi.kvs.gov.in",
+"family": "s3waas",
+"why": "10% sample: Delhi / School"
+},
+"anjaw.nic.in": {
+"url": "https://anjaw.nic.in",
+"family": "s3waas",
+"why": "10% sample: Arunachal Pradesh / State portal / key site"
+},
+"bihar.nic.in": {
+"url": "https://bihar.nic.in",
+"family": "s3waas",
+"why": "10% sample: Bihar / Attached office"
+},
+"rodehradun.kvs.gov.in": {
+"url": "https://rodehradun.kvs.gov.in",
+"family": "s3waas",
+"why": "10% sample: Uttarakhand / School"
+},
+"anuppur.nic.in": {
+"url": "https://anuppur.nic.in",
+"family": "s3waas",
+"why": "10% sample: Madhya Pradesh / State portal / key site"
+},
+"uttarainformation.gov.in": {
+"url": "https://uttarainformation.gov.in",
+"family": "s3waas",
+"why": "10% sample: Uttarakhand / State department"
+},
+"chhotaudepur.nic.in": {
+"url": "https://chhotaudepur.nic.in",
+"family": "s3waas",
+"why": "10% sample: Gujarat / District administration"
+},
+"harfish.gov.in": {
+"url": "https://harfish.gov.in",
+"family": "s3waas",
+"why": "10% sample: Haryana / State department"
+},
+"hpbilaspur.nic.in": {
+"url": "https://hpbilaspur.nic.in",
+"family": "s3waas",
+"why": "10% sample: Himachal Pradesh / State portal / key site"
+},
+"scosta.gov.in": {
+"url": "https://scosta.gov.in",
+"family": "s3waas",
+"why": "10% sample: Union / National scheme / application"
+},
+"trmcc.admissions.nic.in": {
+"url": "https://trmcc.admissions.nic.in",
+"family": "s3waas",
+"why": "10% sample: Tripura / State institution"
+},
+"roranchi.kvs.gov.in": {
+"url": "https://roranchi.kvs.gov.in",
+"family": "s3waas",
+"why": "10% sample: Jharkhand / School"
+},
+"eastkhasihills.gov.in": {
+"url": "https://eastkhasihills.gov.in",
+"family": "s3waas",
+"why": "10% sample: Meghalaya / State portal / key site"
+},
+"wbjeeb.nic.in": {
+"url": "https://wbjeeb.nic.in",
+"family": "s3waas",
+"why": "10% sample: West Bengal / State institution"
+},
+"robangalore.kvs.gov.in": {
+"url": "https://robangalore.kvs.gov.in",
+"family": "s3waas",
+"why": "10% sample: Karnataka / School"
+},
+"balodabazar.gov.in": {
+"url": "https://balodabazar.gov.in",
+"family": "s3waas",
+"why": "10% sample: Chhattisgarh / State portal / key site"
+},
+"www.mahapolice.gov.in": {
+"url": "https://www.mahapolice.gov.in",
+"family": "php-other",
+"why": "10% sample: Maharashtra / State directorate"
+},
+"www.buruniv.ac.in": {
+"url": "https://www.buruniv.ac.in",
+"family": "php-other",
+"why": "10% sample: West Bengal / State institution"
+},
+"cochinshipyard.in": {
+"url": "https://cochinshipyard.in",
+"family": "php-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"www.ptcul.org": {
+"url": "https://www.ptcul.org",
+"family": "php-other",
+"why": "10% sample: Uttarakhand / State board / undertaking"
+},
+"nests.tribal.gov.in": {
+"url": "https://nests.tribal.gov.in",
+"family": "php-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"www.antiragging.in": {
+"url": "https://www.antiragging.in",
+"family": "php-other",
+"why": "10% sample: Union / Commission"
+},
+"www.nagpurrailwaypolice.gov.in": {
+"url": "https://www.nagpurrailwaypolice.gov.in",
+"family": "php-other",
+"why": "10% sample: Maharashtra / Other state body"
+},
+"naccustoms.gov.in": {
+"url": "https://naccustoms.gov.in",
+"family": "php-other",
+"why": "10% sample: Union / Statutory body"
+},
+"handlooms.nic.in": {
+"url": "https://handlooms.nic.in",
+"family": "php-other",
+"why": "10% sample: Union / Commission"
+},
+"www.keralauniversity.ac.in": {
+"url": "https://www.keralauniversity.ac.in",
+"family": "php-other",
+"why": "10% sample: Kerala / State institution"
+},
+"www.rkcl.in": {
+"url": "https://www.rkcl.in",
+"family": "php-other",
+"why": "10% sample: Rajasthan / Other state body"
+},
+"narcoordindia.gov.in": {
+"url": "https://narcoordindia.gov.in",
+"family": "php-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"www.bncollegepatna.com": {
+"url": "https://www.bncollegepatna.com",
+"family": "php-other",
+"why": "10% sample: Bihar / State institution"
+},
+"ctuil.in": {
+"url": "https://ctuil.in",
+"family": "php-other",
+"why": "10% sample: Union / Central PSU / company"
+},
+"egrasmanipur.nic.in": {
+"url": "https://egrasmanipur.nic.in",
+"family": "php-other",
+"why": "10% sample: Manipur / Other state body"
+},
+"www.mansadevi.org.in": {
+"url": "https://www.mansadevi.org.in",
+"family": "php-other",
+"why": "10% sample: Haryana / State board / undertaking"
+},
+"www.tnhsp.org": {
+"url": "https://www.tnhsp.org",
+"family": "php-other",
+"why": "10% sample: Tamil Nadu / Other state body"
+},
+"brns.res.in": {
+"url": "https://brns.res.in",
+"family": "php-other",
+"why": "10% sample: Union / Institution"
+},
+"www.tamlukmunicipality.org": {
+"url": "https://www.tamlukmunicipality.org",
+"family": "php-other",
+"why": "10% sample: West Bengal / Urban local body"
+},
+"www.wihg.res.in": {
+"url": "https://www.wihg.res.in",
+"family": "php-other",
+"why": "10% sample: Union / Institution"
+},
+"www.vgecg.ac.in": {
+"url": "https://www.vgecg.ac.in",
+"family": "php-other",
+"why": "10% sample: Gujarat / State institution"
+},
+"www.ccetdiploma.edu.in": {
+"url": "https://www.ccetdiploma.edu.in",
+"family": "codeigniter-other",
+"why": "10% sample: Chandigarh / State institution"
+},
+"www.jreda.com": {
+"url": "https://www.jreda.com",
+"family": "codeigniter-other",
+"why": "10% sample: Jharkhand / State portal / key site"
+},
+"ppac.gov.in": {
+"url": "https://ppac.gov.in",
+"family": "codeigniter-other",
+"why": "10% sample: Union / Division / wing"
+},
+"tourism.jharkhand.gov.in": {
+"url": "https://tourism.jharkhand.gov.in",
+"family": "codeigniter-other",
+"why": "10% sample: Jharkhand / State department"
+},
+"delhishelterboard.in": {
+"url": "https://delhishelterboard.in",
+"family": "wordpress-other",
+"why": "10% sample: Delhi / State board / undertaking"
+},
+"kochimetro.org": {
+"url": "https://kochimetro.org",
+"family": "wordpress-other",
+"why": "10% sample: Kerala / State board / undertaking"
+},
+"nti.gov.in": {
+"url": "https://nti.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"wbuafscl.ac.in": {
+"url": "https://wbuafscl.ac.in",
+"family": "wordpress-other",
+"why": "10% sample: West Bengal / State institution"
+},
+"hmidarjeeling.com": {
+"url": "https://hmidarjeeling.com",
+"family": "wordpress-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"gpmumbai.ac.in": {
+"url": "https://gpmumbai.ac.in",
+"family": "wordpress-other",
+"why": "10% sample: Maharashtra / State institution"
+},
+"www.nitmz.ac.in": {
+"url": "https://www.nitmz.ac.in",
+"family": "wordpress-other",
+"why": "10% sample: Mizoram / Autonomous body"
+},
+"hbtu.ac.in": {
+"url": "https://hbtu.ac.in",
+"family": "wordpress-other",
+"why": "10% sample: Uttar Pradesh / State institution"
+},
+"ihm-chennai.org": {
+"url": "https://ihm-chennai.org",
+"family": "wordpress-other",
+"why": "10% sample: Union / Institution"
+},
+"www.tiic.org": {
+"url": "https://www.tiic.org",
+"family": "wordpress-other",
+"why": "10% sample: Tamil Nadu / State board / undertaking"
+},
+"pdonpoultry.org": {
+"url": "https://pdonpoultry.org",
+"family": "wordpress-other",
+"why": "10% sample: Union / Division / wing"
+},
+"nabl-india.org": {
+"url": "https://nabl-india.org",
+"family": "wordpress-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"jalandharcity.punjabpolice.gov.in": {
+"url": "https://jalandharcity.punjabpolice.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Punjab / State statutory body"
+},
+"kinfra.org": {
+"url": "https://kinfra.org",
+"family": "wordpress-other",
+"why": "10% sample: Kerala / State board / undertaking"
+},
+"ndtlindia.com": {
+"url": "https://ndtlindia.com",
+"family": "wordpress-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"www.niab.res.in": {
+"url": "https://www.niab.res.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / Institution"
+},
+"dslsa.org": {
+"url": "https://dslsa.org",
+"family": "wordpress-other",
+"why": "10% sample: Delhi / Judicial body"
+},
+"cetcell.mahacet.org": {
+"url": "https://cetcell.mahacet.org",
+"family": "wordpress-other",
+"why": "10% sample: Maharashtra / State scheme / application"
+},
+"www.mcjalandhar.in": {
+"url": "https://www.mcjalandhar.in",
+"family": "wordpress-other",
+"why": "10% sample: Punjab / Urban local body"
+},
+"www.airfindia.org": {
+"url": "https://www.airfindia.org",
+"family": "wordpress-other",
+"why": "10% sample: Union / Other central body"
+},
+"www.phedmanipur.gov.in": {
+"url": "https://www.phedmanipur.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Manipur / State department"
+},
+"www.brm.nsd.gov.in": {
+"url": "https://www.brm.nsd.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / Other central body"
+},
+"dsrvsindia.ac.in": {
+"url": "https://dsrvsindia.ac.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / Institution"
+},
+"www.pondiuni.edu.in": {
+"url": "https://www.pondiuni.edu.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"diamondinstitute.net": {
+"url": "https://diamondinstitute.net",
+"family": "wordpress-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"project.ndl.gov.in": {
+"url": "https://project.ndl.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / National scheme / application"
+},
+"nlsic.nagaland.gov.in": {
+"url": "https://nlsic.nagaland.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Nagaland / State portal / key site"
+},
+"gcg11.ac.in": {
+"url": "https://gcg11.ac.in",
+"family": "wordpress-other",
+"why": "10% sample: Chandigarh / State institution"
+},
+"scopeonline.in": {
+"url": "https://scopeonline.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / Other central body"
+},
+"home.nagaland.gov.in": {
+"url": "https://home.nagaland.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Nagaland / State department"
+},
+"ayboard.in": {
+"url": "https://ayboard.in",
+"family": "wordpress-other",
+"why": "10% sample: Punjab / State portal / key site"
+},
+"www.icmpune.org": {
+"url": "https://www.icmpune.org",
+"family": "wordpress-other",
+"why": "10% sample: Union / Institution"
+},
+"tbboard.gov.in": {
+"url": "https://tbboard.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / Autonomous body"
+},
+"jercuts.gov.in": {
+"url": "https://jercuts.gov.in",
+"family": "wordpress-other",
+"why": "10% sample: Union / Commission"
+},
+"www.hindisansthan.in": {
+"url": "https://www.hindisansthan.in",
+"family": "wordpress-other",
+"why": "10% sample: Uttar Pradesh / State institution"
+},
+"www.gacl.com": {
+"url": "https://www.gacl.com",
+"family": "wordpress-other",
+"why": "10% sample: Gujarat / State board / undertaking"
+},
+"csjmu.ac.in": {
+"url": "https://csjmu.ac.in",
+"family": "wordpress-other",
+"why": "10% sample: Uttar Pradesh / State institution"
+},
+"credit.nagaland.gov.in": {
+"url": "https://credit.nagaland.gov.in",
+"family": "laravel-other",
+"why": "10% sample: Nagaland / State portal / key site"
+},
+"labour.py.gov.in": {
+"url": "https://labour.py.gov.in",
+"family": "puducherry-drupal",
+"why": "10% sample: Puducherry / State department"
+},
+"manipur.neva.gov.in": {
+"url": "https://manipur.neva.gov.in",
+"family": "neva",
+"why": "10% sample: Manipur / State legislature"
+},
+"sirohi.rajasthan.gov.in": {
+"url": "https://sirohi.rajasthan.gov.in",
+"family": "rajasthan-portal",
+"why": "10% sample: Rajasthan / District administration"
+},
+"churu.rajasthan.gov.in": {
+"url": "https://churu.rajasthan.gov.in",
+"family": "rajasthan-portal",
+"why": "10% sample: Rajasthan / District administration"
+},
+"jodhpur.rajasthan.gov.in": {
+"url": "https://jodhpur.rajasthan.gov.in",
+"family": "rajasthan-portal",
+"why": "10% sample: Rajasthan / District administration"
+},
+"tobaccocontrol.mizoram.gov.in": {
+"url": "https://tobaccocontrol.mizoram.gov.in",
+"family": "mizoram-laravel",
+"why": "10% sample: Mizoram / Other state body"
+},
+"kvklawngtlai.mizoram.gov.in": {
+"url": "https://kvklawngtlai.mizoram.gov.in",
+"family": "mizoram-laravel",
+"why": "10% sample: Mizoram / Other state body"
+},
+"power.mizoram.gov.in": {
+"url": "https://power.mizoram.gov.in",
+"family": "mizoram-laravel",
+"why": "10% sample: Mizoram / State department"
+},
+"zeda.mizoram.gov.in": {
+"url": "https://zeda.mizoram.gov.in",
+"family": "mizoram-laravel",
+"why": "10% sample: Mizoram / Other state body"
+},
+"eoiconakry.gov.in": {
+"url": "https://eoiconakry.gov.in",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"www.indiainfiji.gov.in": {
+"url": "https://www.indiainfiji.gov.in",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"www.eoiparis.gov.in": {
+"url": "https://www.eoiparis.gov.in",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"www.eoiprague.gov.in": {
+"url": "https://www.eoiprague.gov.in",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"www.eoicaracas.gov.in": {
+"url": "https://www.eoicaracas.gov.in",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"eoisantodomingo.gov.in": {
+"url": "https://eoisantodomingo.gov.in",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"www.indianembassyusa.gov.in": {
+"url": "https://www.indianembassyusa.gov.in/",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"www.indianembassybaku.gov.in": {
+"url": "https://www.indianembassybaku.gov.in/",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"www.embassyofindiadakar.gov.in": {
+"url": "https://www.embassyofindiadakar.gov.in",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"eoihavana.gov.in": {
+"url": "https://eoihavana.gov.in",
+"family": "mea-missions",
+"why": "10% sample: Abroad / Indian mission abroad"
+},
+"tcp.assam.gov.in": {
+"url": "https://tcp.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / State directorate"
+},
+"soilconservation.assam.gov.in": {
+"url": "https://soilconservation.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / State department"
+},
+"gmdwsb.assam.gov.in": {
+"url": "https://gmdwsb.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / State board / undertaking"
+},
+"mmscmsguy.assam.gov.in": {
+"url": "https://mmscmsguy.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / Other state body"
+},
+"ssa.assam.gov.in": {
+"url": "https://ssa.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / Other state body"
+},
+"fremaa.assam.gov.in": {
+"url": "https://fremaa.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / State board / undertaking"
+},
+"kamrup.assam.gov.in": {
+"url": "https://kamrup.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / District administration"
+},
+"rusa.assam.gov.in": {
+"url": "https://rusa.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / Other state body"
+},
+"auwssb.assam.gov.in": {
+"url": "https://auwssb.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / State board / undertaking"
+},
+"aifa.assam.gov.in": {
+"url": "https://aifa.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / State board / undertaking"
+},
+"asbtc.assam.gov.in": {
+"url": "https://asbtc.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / Other state body"
+},
+"directortourism.assam.gov.in": {
+"url": "https://directortourism.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / State directorate"
+},
+"directoradulteducation.assam.gov.in": {
+"url": "https://directoradulteducation.assam.gov.in",
+"family": "assam-drupal",
+"why": "10% sample: Assam / State directorate"
+},
+"westtripura.dcourts.gov.in": {
+"url": "https://westtripura.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Tripura / District court"
+},
+"bharuch.dcourts.gov.in": {
+"url": "https://bharuch.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Gujarat / District court"
+},
+"changlang.dcourts.gov.in": {
+"url": "https://changlang.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Arunachal Pradesh / District court"
+},
+"karur.dcourts.gov.in": {
+"url": "https://karur.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Tamil Nadu / District court"
+},
+"madhubani.dcourts.gov.in": {
+"url": "https://madhubani.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Bihar / District court"
+},
+"ganganagar.dcourts.gov.in": {
+"url": "https://ganganagar.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Rajasthan / District court"
+},
+"chandigarh.dcourts.gov.in": {
+"url": "https://chandigarh.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Chandigarh / District court"
+},
+"tehrigarhwal.dcourts.gov.in": {
+"url": "https://tehrigarhwal.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Uttarakhand / District court"
+},
+"puri.dcourts.gov.in": {
+"url": "https://puri.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Odisha / District court"
+},
+"ujjain.dcourts.gov.in": {
+"url": "https://ujjain.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Madhya Pradesh / District court"
+},
+"beed.dcourts.gov.in": {
+"url": "https://beed.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Maharashtra / District court"
+},
+"keonjhar.dcourts.gov.in": {
+"url": "https://keonjhar.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"bagalkot.dcourts.gov.in": {
+"url": "https://bagalkot.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"kavaratti.dcourts.gov.in": {
+"url": "https://kavaratti.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Lakshadweep / District court"
+},
+"kishanganj.dcourts.gov.in": {
+"url": "https://kishanganj.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Bihar / District court"
+},
+"nizamabad.dcourts.gov.in": {
+"url": "https://nizamabad.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Telangana / District court"
+},
+"malda.dcourts.gov.in": {
+"url": "https://malda.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: West Bengal / District court"
+},
+"diu.dcourts.gov.in": {
+"url": "https://diu.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Dadra and Nagar Haveli and Daman and Diu / District court"
+},
+"jhargram.dcourts.gov.in": {
+"url": "https://jhargram.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: West Bengal / District court"
+},
+"barnala.dcourts.gov.in": {
+"url": "https://barnala.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Punjab / District court"
+},
+"ballia.dcourts.gov.in": {
+"url": "https://ballia.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Uttar Pradesh / District court"
+},
+"khonsa.dcourts.gov.in": {
+"url": "https://khonsa.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"devbhumidwarka.dcourts.gov.in": {
+"url": "https://devbhumidwarka.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Gujarat / District court"
+},
+"jashpur.dcourts.gov.in": {
+"url": "https://jashpur.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Chhattisgarh / District court"
+},
+"dcsgoa.dcourts.gov.in": {
+"url": "https://dcsgoa.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Goa / District court"
+},
+"sheopur.dcourts.gov.in": {
+"url": "https://sheopur.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Madhya Pradesh / District court"
+},
+"bhadrak.dcourts.gov.in": {
+"url": "https://bhadrak.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Odisha / District court"
+},
+"mandya.dcourts.gov.in": {
+"url": "https://mandya.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Karnataka / District court"
+},
+"serchhip.dcourts.gov.in": {
+"url": "https://serchhip.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Mizoram / District court"
+},
+"bhandara.dcourts.gov.in": {
+"url": "https://bhandara.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Maharashtra / District court"
+},
+"southandaman.dcourts.gov.in": {
+"url": "https://southandaman.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Andaman and Nicobar Islands / District court"
+},
+"ukhrul.dcourts.gov.in": {
+"url": "https://ukhrul.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Manipur / District court"
+},
+"jowai.dcourts.gov.in": {
+"url": "https://jowai.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"northeast.dcourts.gov.in": {
+"url": "https://northeast.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Delhi / District court"
+},
+"westgodavari.dcourts.gov.in": {
+"url": "https://westgodavari.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Andhra Pradesh / District court"
+},
+"faridabad.dcourts.gov.in": {
+"url": "https://faridabad.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Haryana / District court"
+},
+"singrauli.dcourts.gov.in": {
+"url": "https://singrauli.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Madhya Pradesh / District court"
+},
+"hawai.dcourts.gov.in": {
+"url": "https://hawai.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"rampur.dcourts.gov.in": {
+"url": "https://rampur.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Uttar Pradesh / District court"
+},
+"theni.dcourts.gov.in": {
+"url": "https://theni.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Tamil Nadu / District court"
+},
+"anantnag.dcourts.gov.in": {
+"url": "https://anantnag.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Jammu and Kashmir / District court"
+},
+"motihari.dcourts.gov.in": {
+"url": "https://motihari.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"sahibganj.dcourts.gov.in": {
+"url": "https://sahibganj.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"gumla.dcourts.gov.in": {
+"url": "https://gumla.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Jharkhand / District court"
+},
+"koppal.dcourts.gov.in": {
+"url": "https://koppal.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Karnataka / District court"
+},
+"kishtwar.dcourts.gov.in": {
+"url": "https://kishtwar.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Jammu and Kashmir / District court"
+},
+"guna.dcourts.gov.in": {
+"url": "https://guna.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Madhya Pradesh / District court"
+},
+"nongpoh.dcourts.gov.in": {
+"url": "https://nongpoh.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"banswara.dcourts.gov.in": {
+"url": "https://banswara.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Rajasthan / District court"
+},
+"unnao.dcourts.gov.in": {
+"url": "https://unnao.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Uttar Pradesh / District court"
+},
+"jhansi.dcourts.gov.in": {
+"url": "https://jhansi.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Uttar Pradesh / District court"
+},
+"shimla.dcourts.gov.in": {
+"url": "https://shimla.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Himachal Pradesh / District court"
+},
+"chatra.dcourts.gov.in": {
+"url": "https://chatra.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Jharkhand / District court"
+},
+"indus.dcourts.gov.in": {
+"url": "https://indus.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Maharashtra / District court"
+},
+"mangan.dcourts.gov.in": {
+"url": "https://mangan.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Sikkim / District court"
+},
+"dhubri.dcourts.gov.in": {
+"url": "https://dhubri.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Assam / District court"
+},
+"moga.dcourts.gov.in": {
+"url": "https://moga.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Punjab / District court"
+},
+"mayiladuthurai.dcourts.gov.in": {
+"url": "https://mayiladuthurai.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Tamil Nadu / District court"
+},
+"porbandar.dcourts.gov.in": {
+"url": "https://porbandar.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Gujarat / District court"
+},
+"kamrup.dcourts.gov.in": {
+"url": "https://kamrup.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Assam / District court"
+},
+"gorakhpur.dcourts.gov.in": {
+"url": "https://gorakhpur.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Uttar Pradesh / District court"
+},
+"bomdila.dcourts.gov.in": {
+"url": "https://bomdila.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"gopalganj.dcourts.gov.in": {
+"url": "https://gopalganj.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Bihar / District court"
+},
+"malappuram.dcourts.gov.in": {
+"url": "https://malappuram.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Kerala / District court"
+},
+"buldana.dcourts.gov.in": {
+"url": "https://buldana.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Union / District court"
+},
+"kargil.dcourts.gov.in": {
+"url": "https://kargil.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Ladakh / District court"
+},
+"sultanpur.dcourts.gov.in": {
+"url": "https://sultanpur.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Uttar Pradesh / District court"
+},
+"nirmal.dcourts.gov.in": {
+"url": "https://nirmal.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Telangana / District court"
+},
+"kamrupmetro.dcourts.gov.in": {
+"url": "https://kamrupmetro.dcourts.gov.in",
+"family": "s3waas-ecourts",
+"why": "10% sample: Assam / District court"
+},
+"bundi.kvs.ac.in": {
+"url": "https://bundi.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Rajasthan / School"
+},
+"bhikiwindbsf.kvs.ac.in": {
+"url": "https://bhikiwindbsf.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Punjab / School"
+},
+"bsfkrishnanagar.kvs.ac.in": {
+"url": "https://bsfkrishnanagar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: West Bengal / School"
+},
+"koderma.kvs.ac.in": {
+"url": "https://koderma.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Jharkhand / School"
+},
+"kishtwar.kvs.ac.in": {
+"url": "https://kishtwar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Jammu and Kashmir / School"
+},
+"ongcagartala.kvs.ac.in": {
+"url": "https://ongcagartala.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Tripura / School"
+},
+"newmehrauliroadjnu.kvs.ac.in": {
+"url": "https://newmehrauliroadjnu.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Delhi / School"
+},
+"no2jammucantt.kvs.ac.in": {
+"url": "https://no2jammucantt.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Jammu and Kashmir / School"
+},
+"bolarum.kvs.ac.in": {
+"url": "https://bolarum.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Telangana / School"
+},
+"oefkanpur.kvs.ac.in": {
+"url": "https://oefkanpur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"no1pondicherryshift2.kvs.ac.in": {
+"url": "https://no1pondicherryshift2.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Puducherry / School"
+},
+"aayervaranasi.kvs.ac.in": {
+"url": "https://aayervaranasi.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"no2tirupati.kvs.ac.in": {
+"url": "https://no2tirupati.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Andhra Pradesh / School"
+},
+"nagrota.kvs.ac.in": {
+"url": "https://nagrota.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Jammu and Kashmir / School"
+},
+"no1vascodagama.kvs.ac.in": {
+"url": "https://no1vascodagama.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Goa / School"
+},
+"kondagaon.kvs.ac.in": {
+"url": "https://kondagaon.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Chhattisgarh / School"
+},
+"shahadara.kvs.ac.in": {
+"url": "https://shahadara.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Delhi / School"
+},
+"ambikapur.kvs.ac.in": {
+"url": "https://ambikapur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Chhattisgarh / School"
+},
+"matanhail.kvs.ac.in": {
+"url": "https://matanhail.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Haryana / School"
+},
+"gajapati.kvs.ac.in": {
+"url": "https://gajapati.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Odisha / School"
+},
+"no2roorkee.kvs.ac.in": {
+"url": "https://no2roorkee.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttarakhand / School"
+},
+"gomtinagar.kvs.ac.in": {
+"url": "https://gomtinagar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"mandapamcamp.kvs.ac.in": {
+"url": "https://mandapamcamp.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Tamil Nadu / School"
+},
+"longowalsliet.kvs.ac.in": {
+"url": "https://longowalsliet.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Punjab / School"
+},
+"malanjkhand.kvs.ac.in": {
+"url": "https://malanjkhand.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"pusa.kvs.ac.in": {
+"url": "https://pusa.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Bihar / School"
+},
+"hamlains.kvs.ac.in": {
+"url": "https://hamlains.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Maharashtra / School"
+},
+"raigarh.kvs.ac.in": {
+"url": "https://raigarh.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Chhattisgarh / School"
+},
+"bemlnagarkolar.kvs.ac.in": {
+"url": "https://bemlnagarkolar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Karnataka / School"
+},
+"itbpsivagangai.kvs.ac.in": {
+"url": "https://itbpsivagangai.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Tamil Nadu / School"
+},
+"churu.kvs.ac.in": {
+"url": "https://churu.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Rajasthan / School"
+},
+"iimjoka.kvs.ac.in": {
+"url": "https://iimjoka.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: West Bengal / School"
+},
+"happyvalley.kvs.ac.in": {
+"url": "https://happyvalley.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Meghalaya / School"
+},
+"hyderabadcrpf.kvs.ac.in": {
+"url": "https://hyderabadcrpf.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Telangana / School"
+},
+"saranbela.kvs.ac.in": {
+"url": "https://saranbela.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Bihar / School"
+},
+"crpfranchi.kvs.ac.in": {
+"url": "https://crpfranchi.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Jharkhand / School"
+},
+"gccrpfsonepat.kvs.ac.in": {
+"url": "https://gccrpfsonepat.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Haryana / School"
+},
+"afskumbhirgram.kvs.ac.in": {
+"url": "https://afskumbhirgram.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Assam / School"
+},
+"ambajhari.kvs.ac.in": {
+"url": "https://ambajhari.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Maharashtra / School"
+},
+"viramgaon.kvs.ac.in": {
+"url": "https://viramgaon.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Gujarat / School"
+},
+"no2imphal.kvs.ac.in": {
+"url": "https://no2imphal.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Manipur / School"
+},
+"gangavathi.kvs.ac.in": {
+"url": "https://gangavathi.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Karnataka / School"
+},
+"nabrangpur.kvs.ac.in": {
+"url": "https://nabrangpur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Odisha / School"
+},
+"kandukurtown.kvs.ac.in": {
+"url": "https://kandukurtown.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Andhra Pradesh / School"
+},
+"raghunathpura.kvs.ac.in": {
+"url": "https://raghunathpura.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Haryana / School"
+},
+"no1suratgarhafs.kvs.ac.in": {
+"url": "https://no1suratgarhafs.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Rajasthan / School"
+},
+"panagarh.kvs.ac.in": {
+"url": "https://panagarh.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: West Bengal / School"
+},
+"no1bhubaneswarshift2.kvs.ac.in": {
+"url": "https://no1bhubaneswarshift2.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Odisha / School"
+},
+"no2iocbarauni.kvs.ac.in": {
+"url": "https://no2iocbarauni.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Bihar / School"
+},
+"paradipport.kvs.ac.in": {
+"url": "https://paradipport.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Odisha / School"
+},
+"raisen.kvs.ac.in": {
+"url": "https://raisen.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"betiah.kvs.ac.in": {
+"url": "https://betiah.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Bihar / School"
+},
+"crpfkohima.kvs.ac.in": {
+"url": "https://crpfkohima.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Nagaland / School"
+},
+"afsnaliya.kvs.ac.in": {
+"url": "https://afsnaliya.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Gujarat / School"
+},
+"khurud.kvs.ac.in": {
+"url": "https://khurud.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Chhattisgarh / School"
+},
+"no1afsbhuj.kvs.ac.in": {
+"url": "https://no1afsbhuj.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Gujarat / School"
+},
+"sarsawa.kvs.ac.in": {
+"url": "https://sarsawa.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"no1armapur.kvs.ac.in": {
+"url": "https://no1armapur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"no6pratapnagar.kvs.ac.in": {
+"url": "https://no6pratapnagar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Rajasthan / School"
+},
+"secldhanpuri.kvs.ac.in": {
+"url": "https://secldhanpuri.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"misacantt.kvs.ac.in": {
+"url": "https://misacantt.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Assam / School"
+},
+"krishnarajapuram.kvs.ac.in": {
+"url": "https://krishnarajapuram.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Karnataka / School"
+},
+"matiakabarpur.kvs.ac.in": {
+"url": "https://matiakabarpur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"dewas.kvs.ac.in": {
+"url": "https://dewas.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"gunturshift2.kvs.ac.in": {
+"url": "https://gunturshift2.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Andhra Pradesh / School"
+},
+"wardha.kvs.ac.in": {
+"url": "https://wardha.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Maharashtra / School"
+},
+"jharodakalan.kvs.ac.in": {
+"url": "https://jharodakalan.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Delhi / School"
+},
+"kakinada.kvs.ac.in": {
+"url": "https://kakinada.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Andhra Pradesh / School"
+},
+"nerizzatnagar.kvs.ac.in": {
+"url": "https://nerizzatnagar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"no3cochin.kvs.ac.in": {
+"url": "https://no3cochin.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Kerala / School"
+},
+"dharampur.kvs.ac.in": {
+"url": "https://dharampur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Himachal Pradesh / School"
+},
+"latehar.kvs.ac.in": {
+"url": "https://latehar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Jharkhand / School"
+},
+"shivgarhraebareli.kvs.ac.in": {
+"url": "https://shivgarhraebareli.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"no3jorhat.kvs.ac.in": {
+"url": "https://no3jorhat.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Assam / School"
+},
+"bandarsindari.kvs.ac.in": {
+"url": "https://bandarsindari.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Rajasthan / School"
+},
+"no3sagar.kvs.ac.in": {
+"url": "https://no3sagar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"dwarkagujarat.kvs.ac.in": {
+"url": "https://dwarkagujarat.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Gujarat / School"
+},
+"gangtok.kvs.ac.in": {
+"url": "https://gangtok.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Sikkim / School"
+},
+"rajgarhi.kvs.ac.in": {
+"url": "https://rajgarhi.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Union / School"
+},
+"avadiafs.kvs.ac.in": {
+"url": "https://avadiafs.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Tamil Nadu / School"
+},
+"ofambarnathshift2.kvs.ac.in": {
+"url": "https://ofambarnathshift2.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Maharashtra / School"
+},
+"kavaratti.kvs.ac.in": {
+"url": "https://kavaratti.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Lakshadweep / School"
+},
+"no1stcjabalpur.kvs.ac.in": {
+"url": "https://no1stcjabalpur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"no4pathankot.kvs.ac.in": {
+"url": "https://no4pathankot.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Punjab / School"
+},
+"dwarkaspg.kvs.ac.in": {
+"url": "https://dwarkaspg.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Delhi / School"
+},
+"mahoba.kvs.ac.in": {
+"url": "https://mahoba.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"no2portblair.kvs.ac.in": {
+"url": "https://no2portblair.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Andaman and Nicobar Islands / School"
+},
+"keylonglahaulspiti.kvs.ac.in": {
+"url": "https://keylonglahaulspiti.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Himachal Pradesh / School"
+},
+"warangal.kvs.ac.in": {
+"url": "https://warangal.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Telangana / School"
+},
+"shivamogga.kvs.ac.in": {
+"url": "https://shivamogga.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Karnataka / School"
+},
+"pulgaoncamp.kvs.ac.in": {
+"url": "https://pulgaoncamp.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Maharashtra / School"
+},
+"hayuliang.kvs.ac.in": {
+"url": "https://hayuliang.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Arunachal Pradesh / School"
+},
+"nadalwaye.kvs.ac.in": {
+"url": "https://nadalwaye.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Kerala / School"
+},
+"avadicrpf.kvs.ac.in": {
+"url": "https://avadicrpf.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Tamil Nadu / School"
+},
+"no5jaipurshift2.kvs.ac.in": {
+"url": "https://no5jaipurshift2.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Rajasthan / School"
+},
+"singrauli.kvs.ac.in": {
+"url": "https://singrauli.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"no2agracantt.kvs.ac.in": {
+"url": "https://no2agracantt.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"no2afstezpur.kvs.ac.in": {
+"url": "https://no2afstezpur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Assam / School"
+},
+"dhana.kvs.ac.in": {
+"url": "https://dhana.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"kutra.kvs.ac.in": {
+"url": "https://kutra.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Odisha / School"
+},
+"hardwarbhel.kvs.ac.in": {
+"url": "https://hardwarbhel.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttarakhand / School"
+},
+"hamirpur.kvs.ac.in": {
+"url": "https://hamirpur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Himachal Pradesh / School"
+},
+"maligaon.kvs.ac.in": {
+"url": "https://maligaon.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Assam / School"
+},
+"nagaur.kvs.ac.in": {
+"url": "https://nagaur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Rajasthan / School"
+},
+"anuppur.kvs.ac.in": {
+"url": "https://anuppur.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"sainikvihar.kvs.ac.in": {
+"url": "https://sainikvihar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Delhi / School"
+},
+"champhai.kvs.ac.in": {
+"url": "https://champhai.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Mizoram / School"
+},
+"no3patiala.kvs.ac.in": {
+"url": "https://no3patiala.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Punjab / School"
+},
+"lansdowne.kvs.ac.in": {
+"url": "https://lansdowne.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Union / School"
+},
+"nabhacantt.kvs.ac.in": {
+"url": "https://nabhacantt.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Punjab / School"
+},
+"chandigarhsec47.kvs.ac.in": {
+"url": "https://chandigarhsec47.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Chandigarh / School"
+},
+"tawang.kvs.ac.in": {
+"url": "https://tawang.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Arunachal Pradesh / School"
+},
+"no1sagarroad.kvs.ac.in": {
+"url": "https://no1sagarroad.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Rajasthan / School"
+},
+"iitindore.kvs.ac.in": {
+"url": "https://iitindore.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"no1kalaikunda.kvs.ac.in": {
+"url": "https://no1kalaikunda.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: West Bengal / School"
+},
+"trivandrumafs.kvs.ac.in": {
+"url": "https://trivandrumafs.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Kerala / School"
+},
+"bhanjnagar.kvs.ac.in": {
+"url": "https://bhanjnagar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Odisha / School"
+},
+"agcrcolonyshift2.kvs.ac.in": {
+"url": "https://agcrcolonyshift2.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Delhi / School"
+},
+"raiwala.kvs.ac.in": {
+"url": "https://raiwala.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttarakhand / School"
+},
+"muzaffarnagar.kvs.ac.in": {
+"url": "https://muzaffarnagar.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"khandwa.kvs.ac.in": {
+"url": "https://khandwa.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Madhya Pradesh / School"
+},
+"rbkottayam.kvs.ac.in": {
+"url": "https://rbkottayam.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Kerala / School"
+},
+"no1bolangir.kvs.ac.in": {
+"url": "https://no1bolangir.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Odisha / School"
+},
+"brbnmplmysuru.kvs.ac.in": {
+"url": "https://brbnmplmysuru.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Karnataka / School"
+},
+"deoria.kvs.ac.in": {
+"url": "https://deoria.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
+},
+"kargil.kvs.ac.in": {
+"url": "https://kargil.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Ladakh / School"
+},
+"mathana.kvs.ac.in": {
+"url": "https://mathana.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Haryana / School"
+},
+"motihari.kvs.ac.in": {
+"url": "https://motihari.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Bihar / School"
+},
+"pilibhit.kvs.ac.in": {
+"url": "https://pilibhit.kvs.ac.in",
+"family": "s3waas-kvs",
+"why": "10% sample: Uttar Pradesh / School"
 }
 },
 "map": {
