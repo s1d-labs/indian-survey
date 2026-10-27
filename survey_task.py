@@ -60,6 +60,17 @@ except (OSError, ValueError):
     IP_GROUP = {}
 
 
+# NIC's networks: if this runner's IP gets blocked there (NIC refused dev-vps-2 on 27 Oct 2026), the runner retires so the
+# pool starts a fresh VM with a new IP; the blocked items go back to the queue for another runner
+NIC_NETS = ("164.100.", "103.195.", "45.127.")
+BLOCK_ERRS = {"connect-timeout", "connect-error", "reset", "unreachable", "disconnected"}
+BLOCK_WINDOW, BLOCK_FAILS = 10, 6
+
+
+class VantageBlocked(Exception):
+    pass
+
+
 def pace(ip):
     n = IP_GROUP.get(ip, 1) if ip else 1
     if n <= 3:
@@ -76,6 +87,8 @@ class Worker:
         self.pages = 0
         self.js_paths = json.loads((HERE / "js_paths.json").read_text()) if task == "render" else []
         self.ua = None
+        self.nic = []          # outcomes of the last NIC-hosted sites: True = answered
+        self.retiring = False
 
     async def start(self):
         if self.task in ("fetch", "crawl", "scrape"):
@@ -142,6 +155,13 @@ class Worker:
                 n_req = 1
             if summary.get("code") in (429, 503):
                 self.ip_pause[ip] = time.monotonic() + 60
+            if (p.get("ip") or "").startswith(NIC_NETS):
+                failed = home_failed(self.task, summary, files)
+                self.nic = (self.nic + [not failed])[-BLOCK_WINDOW:]
+                if failed and self.nic.count(False) >= BLOCK_FAILS and True not in self.nic[-BLOCK_FAILS:]:
+                    self.retiring = True
+                if failed and self.retiring:
+                    raise VantageBlocked(f"NIC refuses this runner ({EGRESS or 'unknown IP'})")
             self.count(summary, n_req, time.monotonic() - t0)
         summary["egress"] = EGRESS
         summary["domain"] = p["domain"]
@@ -164,6 +184,9 @@ class Worker:
     async def guarded(self, item):
         try:
             await self.one(item)
+        except VantageBlocked as r:   # back to the queue for a runner NIC still lets in
+            self.hub.metric("vantage_blocked")
+            self.hub.complete([item["key"]], "failed", error=str(r)[:150])
         except BaseException as r:  # noqa: BLE001: one site never stops the worker
             self.hub.error()
             self.hub.complete([item["key"]], "failed", error=f"{type(r).__name__}: {str(r)[:150]}")
@@ -174,7 +197,7 @@ class Worker:
         running, exhausted = set(), False
         while (running or not exhausted) and time.time() < DEADLINE:
             st = self.hub.settings
-            want = 0 if st.get("paused") else max(1, int(st.get("threads", 4)))
+            want = 0 if st.get("paused") or self.retiring else max(1, int(st.get("threads", 4)))
             while not exhausted and len(running) < want:
                 items = await asyncio.to_thread(self.hub.claim, 1, True, True)
                 if not items:
@@ -183,6 +206,8 @@ class Worker:
                 running.add(asyncio.create_task(self.guarded(items[0])))
             if running:
                 _, running = await asyncio.wait(running, timeout=30, return_when=asyncio.FIRST_COMPLETED)
+            elif self.retiring:
+                break
             elif not exhausted:
                 await asyncio.sleep(30)   # paused
 
@@ -205,6 +230,21 @@ class Worker:
                     self.hub.complete([item["key"]], "failed", error=f"{type(r).__name__}: {str(r)[:150]}")
             if st.get("delay_ms"):
                 await asyncio.sleep(st["delay_ms"] / 1000)
+
+
+def home_failed(task, summary, files):
+    """Did the site's first page fail to connect at all (the sign of a blocked vantage)?"""
+    try:
+        if task == "scrape":
+            first = json.loads((files.get("pages.jsonl") or b"").split(b"\n", 1)[0] or b"{}")
+            return not first.get("code") and summary.get("pages", 0) <= 2
+        if task == "fetch":
+            return not summary.get("code") and summary.get("err") in BLOCK_ERRS
+        idx = json.loads(files.get("index.json") or b"[]")
+        first = idx[0] if idx else {}
+        return not first.get("code") and (first.get("err") in BLOCK_ERRS or summary.get("pages", 0) <= 1)
+    except (ValueError, IndexError, AttributeError):
+        return False
 
 
 class LocalHub:
@@ -260,10 +300,16 @@ def main():
         except Exception:  # noqa: BLE001
             EGRESS = ""
     signal.signal(signal.SIGTERM, lambda *a: (_ for _ in ()).throw(KeyboardInterrupt()))
+    worker = Worker(task, hub)
     try:
-        asyncio.run(Worker(task, hub).run())
+        asyncio.run(worker.run())
     except KeyboardInterrupt:
         hub.close("failed", "stopped: time is up")
+        return
+    if worker.retiring:
+        hub.close("failed", f"NIC blocks this runner ({EGRESS or 'unknown IP'}): retiring it so the pool starts a fresh VM")
+        if "--local" not in sys.argv:
+            os.kill(os.getppid(), signal.SIGTERM)   # the pool worker stops; this VM's job ends, the dispatcher starts a new one
         return
     hub.close()
 
