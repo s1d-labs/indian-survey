@@ -1,7 +1,7 @@
 # indian-survey
 
 A one-off architecture survey of Indian government websites, run on the s1d-labs scrape pool. The host list is every site
-on [igod.gov.in](https://igod.gov.in) (~10.5K that resolve), made by `indian-status` on the hub owner's box (`hosts.json`).
+on [igod.gov.in](https://igod.gov.in) (~10.5K that resolve) plus ~5.9K government hosts igod doesn't list (appended Oct 29), made by `indian-status` on the hub owner's box (`hosts.json`).
 
 | Project | Task | Per host |
 |---|---|---|

@@ -1,6 +1,6 @@
 {
   "family": "indian-survey",
-  "about": "Architecture survey of Indian government websites (igod.gov.in, ~10.9K hosts): what each host serves and how its home page renders, to group sites into the platforms they share (S3WaaS, NIC CMF, GePNIC, ...).",
+  "about": "Architecture survey of Indian government websites (igod.gov.in, ~10.9K hosts, plus ~6K government hosts igod doesn't list): what each host serves and how its home page renders, to group sites into the platforms they share (S3WaaS, NIC CMF, GePNIC, ...).",
   "setup": [
     "pip install -r requirements.txt",
     "python -m playwright install --with-deps chromium"

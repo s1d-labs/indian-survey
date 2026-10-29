@@ -1,4 +1,5 @@
-"""What this family does: one pass over every host listed on igod.gov.in (hosts.json, made by indian-status on the hub
+"""What this family does: one pass over every host listed on igod.gov.in, plus government hosts igod doesn't list (hosts.json,
+appended to, never reordered: queue keys are positional; made by indian-status on the hub
 owner's box: domain, start URL, resolved IP). Two projects, one queue item per host each:
 
   indian-survey-fetch   what the host serves (core_fetch.py)
