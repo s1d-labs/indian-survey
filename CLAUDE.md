@@ -231,3 +231,19 @@ capacity than the India servers.
 - Each proxy IP is one visitor to the site: the hub's speed limits still apply, and 429 / 403 answers slow the project down.
   scrape.s1d.me → Runners → Proxies shows each proxy's health, who has it and its use.
 - Full page: home.s1d.me/docs/17-proxies (in team boxes: `/usr/local/share/team-docs/17-proxies.md`).
+
+## Speed (`threads`, `delay_ms`)
+
+Each project's speed is `threads` per worker process (1-32) and `delay_ms` between requests, handed to the task in `hub.settings`.
+The family owner chooses it:
+
+- from code: `set_pool(..., threads=8, delay_ms=0)` in `setup_family.py`, then run the **Setup** workflow (running Setup again sets
+  it back to what the code says);
+- on scrape.s1d.me: the project's **Speed** buttons, or **Exact** (type the threads and the delay, press Enter); runners pick it up
+  within about 30 seconds.
+
+The hub's back-off and automatic throttle may lower it for a while when the site answers 429 / 403 / 503 or slows down; it returns by
+itself. More threads means more load on the site.
+
+New families: any member adds one on scrape.s1d.me → Runners → Families → Add a family (they become its owner; the hub makes
+`s1d-labs/<name>` from the template with them as admin and clones it into their box at `~/work/<name>`).
