@@ -206,3 +206,28 @@ team boxes are in Germany, so those sites time out or answer 403 there.
   `tests/test_parse.py`). After Setup, scrape.s1d.me → Runners → *Working now* shows the India servers on the project, and its runs
   are listed under `server/vpsin` / `server/vpsin2`.
 - Full page: home.s1d.me/docs/15-india-servers (in team boxes: `/usr/local/share/team-docs/15-india-servers.md`).
+
+## Proxies (`proxy="IN"`)
+
+The hub has 10 static proxies in Mumbai (10 Indian IPs). Sites that refuse foreign visitors (most `.gov.in` / `.nic.in`) answer
+through them. They are the first choice for India-only sites: the work runs on the pool's GitHub runners, which have far more
+capacity than the India servers.
+
+- `set_pool(..., proxy="IN")` in `setup_family.py` (then run the **Setup** workflow): GitHub pool workers take that project's work and
+  **each worker borrows one proxy** for its assignment (one worker per IP). With no proxy free the project waits; the hub starts no
+  more runs than there are free proxies. A family borrows at most 4 at once by default (the hub owner changes it per family).
+  `proxy=""` turns it off. `geo="IN"` and `proxy="IN"` together: both the India servers and proxied GitHub workers take the work.
+- The task gets the proxy in `HTTPS_PROXY` / `HTTP_PROXY` (requests, httpx, urllib3, curl, pip use them by themselves) and in
+  `SCRAPE_PROXY` for code that sets a proxy explicitly; `SCRAPE_PROXY_LABEL` / `SCRAPE_PROXY_EXIT` name it. Calls to scrape.s1d.me
+  and GitHub go direct, and the URL is masked in the GitHub log. Playwright takes the login separately:
+  ```python
+  from urllib.parse import urlsplit, unquote
+  u = urlsplit(os.environ["SCRAPE_PROXY"])
+  browser = p.chromium.launch(proxy={"server": f"http://{u.hostname}:{u.port}", "username": unquote(u.username), "password": unquote(u.password)})
+  ```
+- From a team box (in Germany, where India-only sites time out): `myproxy run CMD…` runs one command through a proxy,
+  `myproxy curl URL` tests a site, `eval "$(myproxy env)"` sets the variables in the shell, `myproxy release` gives it back
+  (2 hours by default, one per member). `myproxy run scrape-check --items 2` checks a scraper end to end through an Indian IP.
+- Each proxy IP is one visitor to the site: the hub's speed limits still apply, and 429 / 403 answers slow the project down.
+  scrape.s1d.me → Runners → Proxies shows each proxy's health, who has it and its use.
+- Full page: home.s1d.me/docs/17-proxies (in team boxes: `/usr/local/share/team-docs/17-proxies.md`).
