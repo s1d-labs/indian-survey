@@ -247,3 +247,14 @@ itself. More threads means more load on the site.
 
 New families: any member adds one on scrape.s1d.me → Runners → Families → Add a family (they become its owner; the hub makes
 `s1d-labs/<name>` from the template with them as admin and clones it into their box at `~/work/<name>`).
+
+## Picking proxies (`proxy_only`) and health checks through proxies
+
+- The 10 proxies are in three IP ranges: `191.219.x` (in-01 … in-05), `91.124.42.x` (in-06, in-07), `95.134.119.x` (in-08 … in-10).
+  Some sites refuse whole ranges (2026-11-02: mes.gov.in and nhai.gov.in only accept `91.124.42.x`; the proxy then answers
+  "502 Bad Gateway" right away). `set_pool(..., proxy="IN", proxy_only=["91.124.42."])` lends that project only those (IP prefixes or
+  labels like `in-06`); its workers then wait for one of them.
+- The hub's health checks of `.gov.in` / `.nic.in` sites, of sites used by a `proxy` / `geo` project, or with `"proxy": "IN"` in
+  `set_probes` go through an Indian proxy (one per IP range, up to 3, before a site counts as down), so India-only sites no longer
+  look down and hold their work.
+- Full page: home.s1d.me/docs/17-proxies.
