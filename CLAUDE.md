@@ -258,3 +258,18 @@ New families: any member adds one on scrape.s1d.me → Runners → Families → 
   `set_probes` go through an Indian proxy (one per IP range, up to 3, before a site counts as down), so India-only sites no longer
   look down and hold their work.
 - Full page: home.s1d.me/docs/17-proxies.
+
+## Writing reports
+
+Reports from this repo use ASD-STE100 Simplified Technical English (STE). This includes findings, summaries, reports and README text for readers.
+
+- Use approved words with one meaning. Use the technical names of the subject (bid, tender, award, scraper).
+- Use the same word for the same thing every time.
+- Use the simple present, simple past or simple future tense. Use the active voice.
+- Write not more than 20 words in an instruction and not more than 25 words in a description.
+- Write one topic in each sentence and in each paragraph. A paragraph has not more than six sentences.
+- Write instructions in the imperative. Use vertical lists for steps and items.
+- Do not use more than three nouns in a row. Do not use slang, idioms or contractions.
+- For investigation findings: give exact facts and their sources, write indicators as indicators, and do not name officials or private individuals.
+
+Full summary with examples: team doc `18-writing-standard` (in a team box: `/usr/local/share/team-docs/18-writing-standard.md`).
