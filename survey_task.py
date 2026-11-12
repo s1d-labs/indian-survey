@@ -265,41 +265,13 @@ def home_failed(task, summary, files):
         return False
 
 
-class LocalHub:
-    """Stand-in for HubClient so `--local URL` runs without the hub."""
-    settings = {"threads": 1, "delay_ms": 0, "paused": False}
-
-    def __init__(self, url):
-        from urllib.parse import urlsplit
-        mode = sys.argv[sys.argv.index("--mode") + 1] if "--mode" in sys.argv else "deep"
-        self.items = [{"key": "local", "payload": {"domain": urlsplit(url).hostname, "url": url, "mode": mode}}]
-
-    def claim(self, *a):
-        out, self.items = self.items, []
-        return out
-
-    def metric(self, *a):
-        print("metric", *a, file=sys.stderr)
-
-    def error(self, *a):
-        pass
-
-    def record(self, rid, data):
-        print(json.dumps({"record": rid, **data}))
-
-    def upload_many(self, files):
-        for path, data, _ in files:
-            out = Path(".scrape-check") / path
-            out.parent.mkdir(parents=True, exist_ok=True)
-            out.write_bytes(data)
-            print("saved", path, len(data), "bytes", file=sys.stderr)
-
-    def complete(self, keys, status="done", error="", fetched=None):
-        if status != "done":
-            print("failed:", error, file=sys.stderr)
-
-    def close(self, *a):
-        pass
+def local_hub(url):
+    """The client's LocalHub for `--local URL`: one item, records to stdout, the .tgz saved under .scrape-check/."""
+    from urllib.parse import urlsplit
+    from scrape_hub_client import LocalHub
+    mode = sys.argv[sys.argv.index("--mode") + 1] if "--mode" in sys.argv else "deep"
+    return LocalHub(items=[{"key": "local", "payload": {"domain": urlsplit(url).hostname, "url": url, "mode": mode}}],
+                    save_dir=".scrape-check")
 
 
 def main():
@@ -308,7 +280,7 @@ def main():
     if task not in ("fetch", "render", "crawl", "scrape"):
         sys.exit("usage: survey_task.py fetch|render|crawl|scrape [--local URL]")
     if "--local" in sys.argv:
-        hub = LocalHub(sys.argv[sys.argv.index("--local") + 1])
+        hub = local_hub(sys.argv[sys.argv.index("--local") + 1])
     else:
         from scrape_hub_client import HubClient
         hub = HubClient(PROJECT, job_index=int(os.environ.get("SCRAPE_JOB_INDEX", 0)),

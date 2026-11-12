@@ -167,7 +167,7 @@ per thread. `HubClient` is thread-safe for `record`, `metric`, `failure`, `uploa
 
 - **Parsing**: keep `parse()` pure and test it with saved pages (`tests/test_parse.py`, pages in `tests/pages/`); `python -m pytest tests`.
 - **One page, no hub**: `python crawl.py --local <url>` (template) fetches a page and prints the records.
-- **Against the hub's API**: `scrape-check` (from `scrape-hub-client` ≥ 0.5, `pip install "scrape-hub-client @ git+https://github.com/s1d-labs/runner@main#subdirectory=sdk"`).
+- **Against the hub's API**: `scrape-check` (from `scrape-hub-client` ≥ 0.5, `pip install "scrape-hub-client @ git+https://github.com/s1d-labs/runner@sdk-stable#subdirectory=sdk"`).
   It runs `setup_family.py` and one task against `scrape_hub_client.testhub.TestHub`, a local stand-in that answers the same runner API
   with the same validation, using the runner's env vars, cwd and argv. Options: `--items N` (default 3), `--project`, `--task`,
   `--pause S` (seconds the hub reports paused at the start, default 5, 0 = off), `--no-rerun`, `--timeout S`, `--json`; for repos without
